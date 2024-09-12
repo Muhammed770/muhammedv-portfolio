@@ -1,15 +1,31 @@
 import { ProjectCard, type ProjectType } from "@/components/projectCard";
 import Image from "next/image";
+import { FaChevronDown } from "react-icons/fa";
+import BlurFade from "@/components/magicui/blur-fade";
+import BlurFadeText from "@/components/magicui/blur-fade-text";
+import BlurFadeIcon from "@/components/magicui/blur-fade-icon";
+import { WorkExperience, type WorkExperienceType } from "@/components/workExperience";
+
+const BLUR_FADE_DELAY = 0.04;
 
 export default function Home() {
 
+  const workExperience: WorkExperienceType[] = [
+    {
+      url: "/work-experience/welkin.png",
+      position: "frontend engineer",
+      company: "welkin embedded solutions pvt ltd",
+      duration: "jan 2023 - jun 2024",
+      description: "worked on building web applications and full-stack applications.",
+    },
+  ]
   const projects: ProjectType[] = [
     {
-      name: "project 1",
-      description: "this is a project",
+      name: "welkin fleet tracking",
+      description: "web application for fleet tracking, fuel usage, ac used, live location ...using iot device data",
       contentType: "photo",
       url: "/projects/welkin.png",
-      techStack: ["react", "typescript", "tailwindcss"],
+      techStack: ["react", "typescript", "chakra ui","nextauth","next.js"],
     },
     {
       name: "project 2",
@@ -35,128 +51,87 @@ export default function Home() {
   ]
 
   return (
-    // <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-manrope-bold)]">
-    //   <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-    //     <Image
-    //       className="dark:invert"
-    //       src="https://nextjs.org/icons/next.svg"
-    //       alt="Next.js logo"
-    //       width={180}
-    //       height={38}
-    //       priority
-    //     />
-    //     <ol className="list-inside list-decimal text-xl text-center sm:text-left font-[family-name:var(--font-manrope-bold)]">
-    //       <li className="mb-2">
-    //         Get started by editing{" "}
-    //         <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-    //           src/app/page.tsx
-    //         </code>
-    //         .
-    //       </li>
-    //       <li>Save and see your changes instantly.</li>
-    //     </ol>
 
-    //     <div className="flex gap-4 items-center flex-col sm:flex-row">
-    //       <a
-    //         className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-    //         href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //       >
-    //         <Image
-    //           className="dark:invert"
-    //           src="https://nextjs.org/icons/vercel.svg"
-    //           alt="Vercel logomark"
-    //           width={20}
-    //           height={20}
-    //         />
-    //         Deploy now
-    //       </a>
-    //       <a
-    //         className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-    //         href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //       >
-    //         Read our docs
-    //       </a>
-    //     </div>
-    //   </main>
-    //   <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-    //     <a
-    //       className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-    //       href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       <Image
-    //         aria-hidden
-    //         src="https://nextjs.org/icons/file.svg"
-    //         alt="File icon"
-    //         width={16}
-    //         height={16}
-    //       />
-    //       Learn
-    //     </a>
-    //     <a
-    //       className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-    //       href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       <Image
-    //         aria-hidden
-    //         src="https://nextjs.org/icons/window.svg"
-    //         alt="Window icon"
-    //         width={16}
-    //         height={16}
-    //       />
-    //       Examples
-    //     </a>
-    //     <a
-    //       className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-    //       href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       <Image
-    //         aria-hidden
-    //         src="https://nextjs.org/icons/globe.svg"
-    //         alt="Globe icon"
-    //         width={16}
-    //         height={16}
-    //       />
-    //       Go to nextjs.org →
-    //     </a>
-    //   </footer>
-    // </div>
     <div className="flex items-center justify-center ">
-      <div className="max-w-screen-md py-8 flex flex-col">
+      <div className="max-w-xl py-8 flex flex-col gap-8">
         <div className="flex justify-between">
 
           <div className="flex flex-col w-[80%]">
-            <h1 className="text-5xl font-[family-name:var(--font-manrope-bold)] tracking-tighter ">
-              hi, i’m muhammed.
-            </h1>
+            <BlurFadeText
+              delay={BLUR_FADE_DELAY}
+              className="text-5xl font-[family-name:var(--font-manrope-bold)] tracking-tighter"
+              yOffset={8}
+              text={`hi, i’m muhammed.`}
+            />
+            <BlurFadeText
+              delay={BLUR_FADE_DELAY}
+              className="text-2xl font-[family-name:var(--font-manrope-semi-bold)] tracking-tighter"
+              yOffset={8}
+              text={"computer science engineer, building web apps and full-stack applications."}
+            />
+          </div>
+          <BlurFade delay={BLUR_FADE_DELAY}>
+            <div className="w-24 h-24">
+              <Image src={"/me.jpg"} className="object-cover object-center w-full h-full" alt="Muhammed" width={80} height={80} />
+            </div>
+          </BlurFade>
+        </div>
 
-            <h3 className="text-[1.65rem] font-[family-name:var(--font-manrope-semi-bold)] tracking-tighter">
-              computer science engineer, building web apps and full-stack applications.
-            </h3>
+        <div className="flex flex-col  items-center">
+          <div className="flex flex-col gap-5">
+            <BlurFade delay={BLUR_FADE_DELAY * 2}>
+              <h1 className="text-3xl font-[family-name:var(--font-manrope-bold)] tracking-tighter ">
+                projects
+              </h1>
+            </BlurFade>
+            <div className="grid grid-cols-2 gap-4">
+              {projects.map((project, id) => (
+                <BlurFade
+                  key={project.name}
+                  delay={BLUR_FADE_DELAY * 3 + id * 0.05}
+                >
+                  <ProjectCard key={project.name} project={project} />
+                </BlurFade>
+              ))}
+
+
+            </div>
           </div>
-          <div className="w-24 h-24">
-            <Image src={"/me.jpg"} className="object-cover object-center w-full h-full" alt="Muhammed" width={80} height={80} />
+          <div className="flex items-start gap-1">
+            <BlurFadeText
+              delay={BLUR_FADE_DELAY * 4}
+              className="text-lg font-[family-name:var(--font-manrope-semi-bold)] tracking-tighter text-clip"
+              yOffset={8}
+              text={"see more"}
+            />
+            <BlurFadeIcon
+              delay={BLUR_FADE_DELAY * 5}
+              icon={<FaChevronDown />}
+            />
+
           </div>
         </div>
-        <div className="flex flex-col gap-4">
+        <BlurFade delay={BLUR_FADE_DELAY * 6}>
           <h1 className="text-3xl font-[family-name:var(--font-manrope-bold)] tracking-tighter ">
-            projects
+            work experience
           </h1>
-          <div className="grid grid-cols-2 gap-4">
-            {projects.map((project) => (
-              <ProjectCard key={project.name} project={project} />
-            ))}
-          </div>
+        </BlurFade>
+        <div className="flex justify-between">
+          {workExperience.map((work, id) => (
+            <BlurFade
+              key={work.company}
+              delay={BLUR_FADE_DELAY * 7 + id * 0.05}
+            >
+              <WorkExperience key={work.company} workExperience={work} />
+            </BlurFade>
+          ))}
         </div>
+
+        <BlurFade delay={BLUR_FADE_DELAY * 7}>
+          <h1 className="text-3xl font-[family-name:var(--font-manrope-bold)] tracking-tighter ">
+            education
+          </h1>
+        </BlurFade>
 
       </div>
     </div>
