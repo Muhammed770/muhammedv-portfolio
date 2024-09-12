@@ -19,7 +19,7 @@ function ProjectCard({ project }: { project: ProjectType }) {
                     <video src={project.url} controls={false} autoPlay />
                 )}
             </div>
-            <div className="p-2">
+            <div className="p``-2">
             <div>
                 {project.techStack?.map((tech) => (
                     <Badge key={tech} variant="secondary" className="m-1">
