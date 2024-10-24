@@ -1,11 +1,6 @@
 import { ProjectCard, type ProjectType } from "@/components/projectCard";
-import Image from "next/image";
-import { FaChevronDown } from "react-icons/fa";
 import BlurFade from "@/components/magicui/blur-fade";
-import BlurFadeText from "@/components/magicui/blur-fade-text";
-import BlurFadeIcon from "@/components/magicui/blur-fade-icon";
-import { WorkExperience, type WorkExperienceType } from "@/components/workExperience";
-import { Education, type EducationType } from "@/components/education";
+
 import {
     Dialog,
     DialogContent,
