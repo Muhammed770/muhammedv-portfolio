@@ -5,6 +5,7 @@ import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import BlurFadeIcon from "@/components/magicui/blur-fade-icon";
 import { WorkExperience, type WorkExperienceType } from "@/components/workExperience";
+import { Education,type EducationType } from "@/components/education";
 import {
   Dialog,
   DialogContent,
@@ -20,9 +21,24 @@ export default function Home() {
       url: "/work-experience/welkiniot.png",
       position: "frontend engineer",
       company: "welkin embedded solutions pvt ltd",
-      duration: "2023 - 2024",
+      duration: "2022 - 2023",
       description: "Developed the front-end architecture and UI design for a fleet tracking application using NextJS and TypeScript, integrated with the company's in-house IoT device.",
     },
+  ]
+
+  const education: EducationType[] = [
+    {
+      url: "/education/gect.png",
+      degree: "Bachelor of Technology in Computer Science and Engineering",
+      school: "Government Engineering College, Thrissur",
+      duration: "2020 - 2024",
+    },
+    {
+      url: "/education/alphonsalogo.png",
+      degree: "Senior Secondary Education",
+      school: "Alphonsa Senior Secondary School, Thamarassery",
+      duration: "2018 - 2020",
+    }
   ]
   const projects: ProjectType[] = [
     {
@@ -144,6 +160,14 @@ export default function Home() {
             education
           </h1>
         </BlurFade>
+        {education.map((edu, id) => (
+          <BlurFade
+            key={edu.school}
+            delay={BLUR_FADE_DELAY * 8 + id * 0.05}
+          >
+            <Education key={edu.school} education={edu} />
+          </BlurFade>
+        ))}
       </div>
     </div>
   );
