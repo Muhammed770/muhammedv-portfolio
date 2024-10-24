@@ -5,6 +5,14 @@ import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import BlurFadeIcon from "@/components/magicui/blur-fade-icon";
 import { WorkExperience, type WorkExperienceType } from "@/components/workExperience";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -25,7 +33,7 @@ export default function Home() {
       description: "web application for fleet tracking, fuel usage, ac used, live location ...using iot device data",
       contentType: "photo",
       url: "/projects/welkin.png",
-      techStack: ["react", "typescript", "chakra ui","nextauth","next.js"],
+      techStack: ["react", "typescript", "chakra ui", "nextauth", "next.js"],
     },
     {
       name: "project 2",
@@ -88,8 +96,9 @@ export default function Home() {
               {projects.map((project, id) => (
                 <BlurFade
                   key={project.name}
-                  delay={BLUR_FADE_DELAY * 3 + id * 0.05}
+                  delay={BLUR_FADE_DELAY * 3 + id * 0.09}
                 >
+                  
                   <ProjectCard key={project.name} project={project} />
                 </BlurFade>
               ))}

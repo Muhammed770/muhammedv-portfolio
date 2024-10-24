@@ -11,15 +11,15 @@ interface ProjectType {
 
 function ProjectCard({ project }: { project: ProjectType }) {
     return (
-        <div className="bg-white dark:bg-zinc-900 p-2 h-full flex flex-col border border-black dark:border-white">
-            <div className="border border-black dark:border-white p-[2px]">
+        <div className="bg-white dark:bg-zinc-900 p-2 h-full flex flex-col items-start border border-black dark:border-white">
+            <div className="border border-black dark:border-white">
                 {project.contentType === "photo" ? (
                     <Image src={project.url} alt={project.name} width={900} height={600} />
                 ) : (
                     <video src={project.url} controls={false} autoPlay />
                 )}
             </div>
-            <div className="p-2 gap-1 flex flex-col justify-between flex-1">
+            <div className="p-2 gap-1 flex flex-col items-start justify-between flex-1">
                 <div>
                     <h2 className="  font-[family-name:var(--font-manrope-bold)] text-[1.65rem] tracking-tighter">{project.name}</h2>
                     <p className="text-black/[.5] dark:text-white/[.6] font-[family-name:var(--font-manrope-semi-bold)] text-xl tracking-tighter">{project.description}</p>
