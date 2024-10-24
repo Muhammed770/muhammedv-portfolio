@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -14,22 +15,22 @@ const geistMono = localFont({
 });
 
 const manropeBold = localFont({
-  src:"./fonts/Manrope-Bold.woff2",
+  src: "./fonts/Manrope-Bold.woff2",
   variable: "--font-manrope-bold",
 });
 
 const manropeRegular = localFont({
-  src:"./fonts/Manrope-Regular.woff2",
+  src: "./fonts/Manrope-Regular.woff2",
   variable: "--font-manrope-regular",
 });
 
 const manropeMedium = localFont({
-  src:"./fonts/Manrope-Medium.woff2",
+  src: "./fonts/Manrope-Medium.woff2",
   variable: "--font-manrope-medium",
 });
 
 const manropeSemiBold = localFont({
-  src:"./fonts/Manrope-SemiBold.woff2",
+  src: "./fonts/Manrope-SemiBold.woff2",
   variable: "--font-manrope-semi-bold",
 });
 
@@ -46,9 +47,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${manropeBold.variable} ${manropeSemiBold.variable} ${manropeMedium.variable} ${manropeRegular.variable} antialiased m-0 p-0`}
+        className={`${geistSans.variable} ${geistMono.variable} ${manropeBold.variable} ${manropeSemiBold.variable} ${manropeMedium.variable} ${manropeRegular.variable} antialiased m-0 p-0 `}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

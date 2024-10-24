@@ -31,7 +31,7 @@ export interface BadgeProps
 function Badge({  ...props }: BadgeProps) {
   
   return (
-    <div className={"border-gray-50 bg-transparent text-white m-1 inline-flex items-center  border px-1.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"} {...props} />
+    <div className={" border-black/[.5] dark:border-white/[.45] bg-transparent text-black/[.5] dark:text-white/[.6] m-1 inline-flex items-center  border px-1.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"} {...props} />
   )
 }
 
