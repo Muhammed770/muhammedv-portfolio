@@ -5,12 +5,13 @@ import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import BlurFadeIcon from "@/components/magicui/blur-fade-icon";
 import { WorkExperience, type WorkExperienceType } from "@/components/workExperience";
-import { Education,type EducationType } from "@/components/education";
+import { Education, type EducationType } from "@/components/education";
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import Link from "next/link";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -49,31 +50,38 @@ export default function Home() {
       techStack: ["react", "typescript", "chakra ui", "nextauth", "next.js"],
     },
     {
-      name: "project 2",
-      description: "this is a project",
+      name: "DynamicWeb",
+      description: " A custom CMS using Laravel for dynamic content management. API - based content fetching.",
       contentType: "photo",
       url: "/projects/welkin.png",
-      techStack: ["next.js", "typescript", "tailwindcss"],
+      techStack: ["laravel", "PHP", "sqlite", "tailwindcss", "alpine.js", "blade"],
     },
     {
-      name: "project 3",
-      description: "web application for fleet tracking, fuel usage, ac used, live location ...using iot device data",
+      name: "TickGate",
+      description: "NFT ticket verification and a scalable event ticket management system.",
       contentType: "photo",
       url: "/projects/welkin.png",
-      techStack: ["react", "typescript", "tailwindcss"],
+      techStack: ["web3", "nft", "next.js", "typescript", "tailwindcss", "firebase"],
     },
     {
-      name: "project 3",
-      description: "web application for fleet tracking, fuel usage, ac used, live location ...using iot device data",
+      name: "IPFY",
+      description: "A platform for recording intellectual property using blockchain for transparency and security",
       contentType: "photo",
       url: "/projects/welkin.png",
-      techStack: ["react", "typescript", "tailwindcss"],
+      techStack: ["web3", "react", "typescript", "tailwindcss", "firebase"],
     },
+    {
+      name: "Insta Shopee",
+      description: "Progressive web apploication using astro,that can be made into ios,android apps.",
+      contentType: "photo",
+      url: "/projects/welkin.png",
+      techStack: ["astro", "nodejs", "tailwindcss", "Strapi CMS", "socket.io", "react"],
+    }
   ]
 
   return (
 
-    <div className="flex items-center justify-center ">
+    <div className="flex items-center justify-center m-4">
       <div className="max-w-xl py-8 flex flex-col gap-8">
         <div className="flex justify-between">
 
@@ -105,8 +113,8 @@ export default function Home() {
                 projects
               </h1>
             </BlurFade>
-            <div className="grid grid-cols-2 gap-4">
-              {projects.map((project, id) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {projects.slice(0, 4).map((project, id) => (
                 <BlurFade
                   key={project.name}
                   delay={BLUR_FADE_DELAY * 3 + id * 0.09}
@@ -126,48 +134,55 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-start gap-1">
-            <BlurFadeText
-              delay={BLUR_FADE_DELAY * 4}
-              className="text-lg font-[family-name:var(--font-manrope-semi-bold)] tracking-tighter text-clip"
-              yOffset={8}
-              text={"see more"}
-            />
-            <BlurFadeIcon
-              delay={BLUR_FADE_DELAY * 5}
-              icon={<FaChevronDown />}
-            />
+            <Link href="/projects" className="flex gap-2">
+              <BlurFadeText
+                delay={BLUR_FADE_DELAY * 5}
+                className="text-lg font-[family-name:var(--font-manrope-semi-bold)] tracking-tighter text-clip"
+                yOffset={8}
+                text={"see more"}
+              />
+              <BlurFadeIcon
+                delay={BLUR_FADE_DELAY * 6}
+                icon={<FaChevronDown />}
+              />
+            </Link>
 
           </div>
         </div>
-        <BlurFade delay={BLUR_FADE_DELAY * 6}>
-          <h1 className="text-3xl font-[family-name:var(--font-manrope-bold)] tracking-tighter ">
-            work experience
-          </h1>
-        </BlurFade>
+        <div>
 
-        {workExperience.map((work, id) => (
-          <BlurFade
-            key={work.company}
-            delay={BLUR_FADE_DELAY * 7 + id * 0.05}
-          >
-            <WorkExperience key={work.company} workExperience={work} />
+          <BlurFade delay={BLUR_FADE_DELAY * 6}>
+            <h1 className="text-3xl font-[family-name:var(--font-manrope-bold)] tracking-tighter ">
+              work experience
+            </h1>
           </BlurFade>
-        ))}
 
+          {workExperience.map((work, id) => (
+            <BlurFade
+              key={work.company}
+              delay={BLUR_FADE_DELAY * 7 + id * 0.05}
+            >
+              <WorkExperience key={work.company} workExperience={work} />
+            </BlurFade>
+          ))}
+        </div>
 
-        <BlurFade delay={BLUR_FADE_DELAY * 7}>
-          <h1 className="text-3xl font-[family-name:var(--font-manrope-bold)] tracking-tighter ">
-            education
-          </h1>
-        </BlurFade>
-        {education.map((edu, id) => (
-          <BlurFade
-            key={edu.school}
-            delay={BLUR_FADE_DELAY * 8 + id * 0.05}
-          >
-            <Education key={edu.school} education={edu} />
+        <div>
+          <BlurFade delay={BLUR_FADE_DELAY * 7}>
+            <h1 className="text-3xl font-[family-name:var(--font-manrope-bold)] tracking-tighter ">
+              education
+            </h1>
           </BlurFade>
-        ))}
+          {education.map((edu, id) => (
+            <BlurFade
+              key={edu.school}
+              delay={BLUR_FADE_DELAY * 8 + id * 0.05}
+            >
+              <Education key={edu.school} education={edu} />
+            </BlurFade>
+          ))}
+        </div>
+
       </div>
     </div>
   );
