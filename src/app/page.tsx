@@ -8,9 +8,6 @@ import { WorkExperience, type WorkExperienceType } from "@/components/workExperi
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
 
@@ -20,11 +17,11 @@ export default function Home() {
 
   const workExperience: WorkExperienceType[] = [
     {
-      url: "/work-experience/welkin.png",
+      url: "/work-experience/welkiniot.png",
       position: "frontend engineer",
       company: "welkin embedded solutions pvt ltd",
-      duration: "jan 2023 - jun 2024",
-      description: "worked on building web applications and full-stack applications.",
+      duration: "2023 - 2024",
+      description: "Developed the front-end architecture and UI design for a fleet tracking application using NextJS and TypeScript, integrated with the company's in-house IoT device.",
     },
   ]
   const projects: ProjectType[] = [
@@ -44,14 +41,14 @@ export default function Home() {
     },
     {
       name: "project 3",
-      description: "this is a project",
+      description: "web application for fleet tracking, fuel usage, ac used, live location ...using iot device data",
       contentType: "photo",
       url: "/projects/welkin.png",
       techStack: ["react", "typescript", "tailwindcss"],
     },
     {
       name: "project 3",
-      description: "this is a project",
+      description: "web application for fleet tracking, fuel usage, ac used, live location ...using iot device data",
       contentType: "photo",
       url: "/projects/welkin.png",
       techStack: ["react", "typescript", "tailwindcss"],
@@ -98,8 +95,14 @@ export default function Home() {
                   key={project.name}
                   delay={BLUR_FADE_DELAY * 3 + id * 0.09}
                 >
-                  
-                  <ProjectCard key={project.name} project={project} />
+                  <Dialog>
+                    <DialogTrigger className="h-full flex flex-col items-start text-left">
+                      <ProjectCard key={project.name} project={project} />
+                    </DialogTrigger>
+                    <DialogContent className="backdrop:blur-lg">
+                      <ProjectCard key={project.name} project={project} />
+                    </DialogContent>
+                  </Dialog>
                 </BlurFade>
               ))}
 
@@ -125,23 +128,22 @@ export default function Home() {
             work experience
           </h1>
         </BlurFade>
-        <div className="flex justify-between">
-          {workExperience.map((work, id) => (
-            <BlurFade
-              key={work.company}
-              delay={BLUR_FADE_DELAY * 7 + id * 0.05}
-            >
-              <WorkExperience key={work.company} workExperience={work} />
-            </BlurFade>
-          ))}
-        </div>
+
+        {workExperience.map((work, id) => (
+          <BlurFade
+            key={work.company}
+            delay={BLUR_FADE_DELAY * 7 + id * 0.05}
+          >
+            <WorkExperience key={work.company} workExperience={work} />
+          </BlurFade>
+        ))}
+
 
         <BlurFade delay={BLUR_FADE_DELAY * 7}>
           <h1 className="text-3xl font-[family-name:var(--font-manrope-bold)] tracking-tighter ">
             education
           </h1>
         </BlurFade>
-
       </div>
     </div>
   );
