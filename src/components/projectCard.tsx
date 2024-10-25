@@ -84,7 +84,7 @@ function ProjectCard({ project, isModal }: { project: ProjecCardtType, isModal?:
                 }
             </div>
             <div className="p-2 gap-1 flex flex-col items-start justify-between flex-1">
-                {isModal && <div className="flex flex-row-reverse w-full gap-4 border border-red-500">
+                {isModal && <div className="flex flex-row-reverse w-full gap-4 ">
                     {project.demoVideo && (
                         <a href={project.demoVideo} target="_blank" rel="noopener noreferrer">
                             <Badge variant={'secondary'}>Demo</Badge>
