@@ -17,7 +17,7 @@ function WorkExperience({ workExperience }: { workExperience: WorkExperienceType
             <div className="flex justify-between gap-8  w-full ">
                 <div className="w-16 mt-3">
                     <AspectRatio ratio={1 / 1}>
-                        <Image src={workExperience.url} className="object-cover  object-center w-full h-full" alt="Muhammed" width={80} height={80} />
+                        <Image src={workExperience.url} className="object-cover rounded-full  object-center w-full h-full" alt="Muhammed" width={80} height={80} />
                     </AspectRatio>
                 </div>
 
