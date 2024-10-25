@@ -71,9 +71,6 @@ export const projects: ProjecCardtType[] = [
         description: "Progressive web apploication using astro,that can be made into ios,android apps.",
         carousel: [
             { 'photo': '/projects/welkin.png' },
-            { 'photo': '/projects/welkin.png' },
-            { 'photo': '/projects/welkin.png' },
-            { 'video': 'https://www.youtube.com/embed/_ucV-09aSEg?si=YeFz_CFH_ZA3BJ3o&autoplay=1&controls=0&mute=1' }
         ],
         techStack: ["astro", "nodejs", "tailwindcss", "Strapi CMS", "socket.io", "react"],
     }

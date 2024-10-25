@@ -14,7 +14,6 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function Home() {
     return (
-
         <div className="flex items-center justify-center m-4">
             <div className="max-w-xl py-8 flex flex-col gap-8">
 

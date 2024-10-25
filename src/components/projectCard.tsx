@@ -1,4 +1,3 @@
-"use client"
 import Image from "next/image";
 import { Badge } from "./ui/badge";
 import { AspectRatio } from "./ui/aspect-ratio";
@@ -9,8 +8,6 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
-import * as React from "react"
-import Autoplay from "embla-carousel-autoplay";
 interface CarouselContentType {
     photo?: string;
     video?: string;
@@ -28,9 +25,7 @@ interface ProjecCardtType {
 
 function ProjectCard({ project, isModal }: { project: ProjecCardtType, isModal?: boolean }) {
 
-    const plugin = React.useRef(
-        Autoplay({ delay: 2000, stopOnInteraction: true })
-    )
+ 
 
     return (
         <div className="bg-white dark:bg-zinc-900 p-2 h-full flex flex-col items-start border border-black dark:border-white">
@@ -38,10 +33,7 @@ function ProjectCard({ project, isModal }: { project: ProjecCardtType, isModal?:
             <div className="border border-black dark:border-white w-full">
                 {
                     isModal ? <Carousel
-                        plugins={[plugin.current]}
-                        onMouseEnter={plugin.current.stop}
-                        onMouseLeave={plugin.current.reset}
-
+                     
                     >
                         <CarouselContent>
                             {project.carousel.map((item, index) => (
@@ -58,18 +50,17 @@ function ProjectCard({ project, isModal }: { project: ProjecCardtType, isModal?:
                                             <iframe
                                                 width='100%'
                                                 height='100%'
-                                                src={`${item.video}&autoplay=1&mute=1&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1`} title="YouTube video player"  referrerPolicy="strict-origin-when-cross-origin" allowFullScreen={false}>
+                                                src={`${item.video}&autoplay=1&mute=1&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1`} title="YouTube video player" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen={false}>
                                             </iframe>
                                         </AspectRatio>
                                     </div>)}
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
-                        {
-                            isModal && <CarouselPrevious className="ml-14  rounded-none bg-white dark:bg-black "/>}
-                        {
-                            isModal && <CarouselNext className="mr-14 rounded-none backdrop-invert-0 bg-white dark:bg-black"/>
-                        }
+
+                        <CarouselPrevious className="ml-14  rounded-none bg-white dark:bg-black " />
+                        <CarouselNext className="mr-14 rounded-none backdrop-invert-0 bg-white dark:bg-black" />
+
                     </Carousel> : (
                         project.carousel[0].photo ? <AspectRatio ratio={16 / 9} className="overflow-hidden ">
                             <Image src={project.carousel[0].photo} alt={"project screenshot"} width={900} height={600} />
