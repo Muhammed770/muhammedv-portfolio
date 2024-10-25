@@ -38,7 +38,7 @@ export default function Home() {
       url: "/education/alphonsalogo.png",
       degree: "Senior Secondary Education",
       school: "Alphonsa Senior Secondary School, Thamarassery",
-      duration: "2018 - 2020",
+      // duration: "2018 - 2020",
     }
   ]
   const projects: ProjectType[] = [
@@ -85,7 +85,7 @@ export default function Home() {
       <div className="max-w-xl py-8 flex flex-col gap-8">
         <div className="flex justify-between">
 
-          <div className="flex flex-col w-[80%]">
+          <div className="flex flex-col max-w-md">
             <BlurFadeText
               delay={BLUR_FADE_DELAY}
               className="text-5xl font-[family-name:var(--font-manrope-bold)] tracking-tighter"
@@ -101,7 +101,7 @@ export default function Home() {
           </div>
           <BlurFade delay={BLUR_FADE_DELAY}>
             <div className="w-24 h-24">
-              <Image src={"/me.jpg"} className="object-cover object-center w-full h-full" alt="Muhammed" width={80} height={80} />
+              <Image src={"/me.jpg"} className="object-cover object-center w-full h-full   grayscale hover:grayscale-0 " alt="Muhammed" width={80} height={80} />
             </div>
           </BlurFade>
         </div>
