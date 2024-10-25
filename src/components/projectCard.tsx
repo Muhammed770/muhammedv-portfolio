@@ -64,7 +64,7 @@ function ProjectCard({ project, isModal }: { project: ProjecCardtType, isModal?:
                     </Carousel> : (
                         project.carousel[0].photo ? <AspectRatio ratio={16 / 9} className="overflow-hidden ">
                             <Image src={project.carousel[0].photo} alt={"project screenshot"} width={900} height={600} />
-                        </AspectRatio> : <AspectRatio ratio={16 / 9} className=" youtube-container">
+                        </AspectRatio> : <AspectRatio ratio={16 / 9} className="overflow-hidden  youtube-container">
                             <iframe
                                 width='100%'
                                 height='100%'

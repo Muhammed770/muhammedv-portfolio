@@ -38,8 +38,6 @@ export const projects: ProjecCardtType[] = [
         carousel: [
             { 'video': 'https://www.youtube.com/embed/_ucV-09aSEg?si=YeFz_CFH_ZA3BJ3o&playlist=_ucV-09aSEg' },
             { 'video': 'https://www.youtube.com/embed/YLGLpzT7Ois?si=SqAhBFE5joqah8vj&playlist=YLGLpzT7Ois' },
-            { 'photo': '/projects/welkin.png' },
-            { 'photo': '/projects/welkin.png' },
         ],
         techStack: ["laravel", "PHP", "sqlite", "tailwindcss", "alpine.js", "blade"],
         demoVideo: "https://youtu.be/_ucV-09aSEg&wadsworth=1",
