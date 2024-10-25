@@ -1,83 +1,22 @@
-import { ProjectCard, type ProjectType } from "@/components/projectCard";
+import { ProjectCard } from "@/components/projectCard";
 import Image from "next/image";
 import { FaChevronDown } from "react-icons/fa";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import BlurFadeIcon from "@/components/magicui/blur-fade-icon";
-import { WorkExperience, type WorkExperienceType } from "@/components/workExperience";
-import { Education, type EducationType } from "@/components/education";
+import { WorkExperience} from "@/components/workExperience";
+import { Education } from "@/components/education";
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
 } from "@/components/ui/dialog"
 import Link from "next/link";
+import { projects, workExperience, education } from "@/data/resume";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Home() {
-
-  const workExperience: WorkExperienceType[] = [
-    {
-      url: "/work-experience/welkiniot.png",
-      position: "frontend engineer",
-      company: "welkin embedded solutions pvt ltd",
-      duration: "2022 - 2023",
-      description: "Developed the front-end architecture and UI design for a fleet tracking application using NextJS and TypeScript, integrated with the company's in-house IoT device.",
-    },
-  ]
-
-  const education: EducationType[] = [
-    {
-      url: "/education/gect.png",
-      degree: "Bachelor of Technology in Computer Science and Engineering",
-      school: "Government Engineering College, Thrissur",
-      duration: "2020 - 2024",
-    },
-    {
-      url: "/education/alphonsalogo.png",
-      degree: "Senior Secondary Education",
-      school: "Alphonsa Senior Secondary School, Thamarassery",
-      // duration: "2018 - 2020",
-    }
-  ]
-  const projects: ProjectType[] = [
-    {
-      name: "welkin fleet tracking",
-      description: "web application for fleet tracking, fuel usage, ac used, live location ...using iot device data",
-      contentType: "photo",
-      url: "/projects/welkin.png",
-      techStack: ["react", "typescript", "chakra ui", "nextauth", "next.js"],
-    },
-    {
-      name: "DynamicWeb",
-      description: " A custom CMS using Laravel for dynamic content management. API - based content fetching.",
-      contentType: "photo",
-      url: "/projects/welkin.png",
-      techStack: ["laravel", "PHP", "sqlite", "tailwindcss", "alpine.js", "blade"],
-    },
-    {
-      name: "TickGate",
-      description: "NFT ticket verification and a scalable event ticket management system.",
-      contentType: "photo",
-      url: "/projects/welkin.png",
-      techStack: ["web3", "nft", "next.js", "typescript", "tailwindcss", "firebase"],
-    },
-    {
-      name: "IPFY",
-      description: "A platform for recording intellectual property using blockchain for transparency and security",
-      contentType: "photo",
-      url: "/projects/welkin.png",
-      techStack: ["web3", "react", "typescript", "tailwindcss", "firebase"],
-    },
-    {
-      name: "Insta Shopee",
-      description: "Progressive web apploication using astro,that can be made into ios,android apps.",
-      contentType: "photo",
-      url: "/projects/welkin.png",
-      techStack: ["astro", "nodejs", "tailwindcss", "Strapi CMS", "socket.io", "react"],
-    }
-  ]
 
   return (
 
@@ -101,7 +40,7 @@ export default function Home() {
           </div>
           <BlurFade delay={BLUR_FADE_DELAY}>
             <div className="w-24 h-24">
-              <Image src={"/me.jpg"} className="object-cover object-center w-full h-full   grayscale hover:grayscale-0 " alt="Muhammed" width={80} height={80} />
+              <Image src={"/me.jpg"} className="object-cover object-center w-full h-full  " alt="Muhammed" width={80} height={80} />
             </div>
           </BlurFade>
         </div>
@@ -121,10 +60,10 @@ export default function Home() {
                 >
                   <Dialog>
                     <DialogTrigger className="h-full flex flex-col items-start text-left">
-                      <ProjectCard key={project.name} project={project} />
+                      <ProjectCard key={project.name} project={project} isModal={false}/>
                     </DialogTrigger>
                     <DialogContent className="backdrop:blur-lg">
-                      <ProjectCard key={project.name} project={project} />
+                      <ProjectCard key={project.name} project={project} isModal/>
                     </DialogContent>
                   </Dialog>
                 </BlurFade>

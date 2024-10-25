@@ -1,4 +1,4 @@
-import { ProjectCard, type ProjectType } from "@/components/projectCard";
+import { ProjectCard } from "@/components/projectCard";
 import BlurFade from "@/components/magicui/blur-fade";
 
 import {
@@ -8,49 +8,11 @@ import {
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { projects } from "@/data/resume";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Home() {
-
-    const projects: ProjectType[] = [
-        {
-            name: "welkin fleet tracking",
-            description: "web application for fleet tracking, fuel usage, ac used, live location ...using iot device data",
-            contentType: "photo",
-            url: "/projects/welkin.png",
-            techStack: ["react", "typescript", "chakra ui", "nextauth", "next.js"],
-        },
-        {
-            name: "DynamicWeb",
-            description: " A custom CMS using Laravel for dynamic content management. API - based content fetching.",
-            contentType: "photo",
-            url: "/projects/welkin.png",
-            techStack: ["laravel", "PHP", "sqlite", "tailwindcss", "alpine.js", "blade"],
-        },
-        {
-            name: "TickGate",
-            description: "NFT ticket verification and a scalable event ticket management system.",
-            contentType: "photo",
-            url: "/projects/welkin.png",
-            techStack: ["web3", "nft", "next.js", "typescript", "tailwindcss", "firebase"],
-        },
-        {
-            name: "IPFY",
-            description: "A platform for recording intellectual property using blockchain for transparency and security",
-            contentType: "photo",
-            url: "/projects/welkin.png",
-            techStack: ["web3", "react", "typescript", "tailwindcss", "firebase"],
-        },
-        {
-            name: "Insta Shopee",
-            description: "Progressive web apploication using astro,that can be made into ios,android apps.",
-            contentType: "photo",
-            url: "/projects/welkin.png",
-            techStack: ["astro", "nodejs", "tailwindcss", "Strapi CMS", "socket.io", "react"],
-        }
-    ]
-
     return (
 
         <div className="flex items-center justify-center m-4">
@@ -74,7 +36,7 @@ export default function Home() {
                                             <ProjectCard key={project.name} project={project} />
                                         </DialogTrigger>
                                         <DialogContent className="backdrop:blur-lg">
-                                            <ProjectCard key={project.name} project={project} />
+                                            <ProjectCard key={project.name} project={project} isModal/>
                                         </DialogContent>
                                     </Dialog>
                                 </BlurFade>

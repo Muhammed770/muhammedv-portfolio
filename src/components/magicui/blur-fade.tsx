@@ -1,10 +1,9 @@
 "use client";
 
-import { AnimatePresence, motion, useInView, Variants } from "framer-motion";
+import { AnimatePresence, motion, useInView, UseInViewOptions, Variants } from "framer-motion";
 import { useRef } from "react";
 
-type MarginValue = `${number}${'px' | '%'}`;
-type MarginType = MarginValue | `${MarginValue} ${MarginValue}` | `${MarginValue} ${MarginValue} ${MarginValue}` | `${MarginValue} ${MarginValue} ${MarginValue} ${MarginValue}`;
+type MarginType = UseInViewOptions["margin"];
 interface BlurFadeProps {
   children: React.ReactNode;
   className?: string;

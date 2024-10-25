@@ -1,25 +1,106 @@
+"use client"
 import Image from "next/image";
 import { Badge } from "./ui/badge";
-interface ProjectType {
+import { AspectRatio } from "./ui/aspect-ratio";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel"
+import * as React from "react"
+import Autoplay from "embla-carousel-autoplay";
+interface CarouselContentType {
+    photo?: string;
+    video?: string;
+}
+interface ProjecCardtType {
     name: string;
     description: string;
-    contentType: "photo" | "video";
-    url: string;
+    carousel: CarouselContentType[];
     techStack?: string[];
+    demoVideo?: string;
+    liveLink?: string;
+    githubLink?: string;
 }
 
 
-function ProjectCard({ project }: { project: ProjectType }) {
+function ProjectCard({ project, isModal }: { project: ProjecCardtType, isModal?: boolean }) {
+
+    const plugin = React.useRef(
+        Autoplay({ delay: 2000, stopOnInteraction: true })
+    )
+
     return (
         <div className="bg-white dark:bg-zinc-900 p-2 h-full flex flex-col items-start border border-black dark:border-white">
-            <div className="border border-black dark:border-white">
-                {project.contentType === "photo" ? (
-                    <Image src={project.url} alt={project.name} width={900} height={600} />
-                ) : (
-                    <video src={project.url} controls={false} autoPlay />
-                )}
+
+            <div className="border border-black dark:border-white w-full">
+                {
+                    isModal ? <Carousel
+                        plugins={[plugin.current]}
+                        onMouseEnter={plugin.current.stop}
+                        onMouseLeave={plugin.current.reset}
+
+                    >
+                        <CarouselContent>
+                            {project.carousel.map((item, index) => (
+                                <CarouselItem key={index}>
+                                    {item.photo && (
+                                        <div className="w-full">
+                                            <AspectRatio ratio={16 / 9} className="overflow-hidden ">
+                                                <Image src={item.photo} alt={"project screenshot"} width={900} height={600} />
+                                            </AspectRatio>
+                                        </div>
+                                    )}
+                                    {item.video && (<div className="w-full ">
+                                        <AspectRatio ratio={16 / 9} className=" youtube-container">
+                                            <iframe
+                                                width='100%'
+                                                height='100%'
+                                                src={`${item.video}&autoplay=1&mute=1&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1`} title="YouTube video player"  referrerPolicy="strict-origin-when-cross-origin" allowFullScreen={false}>
+                                            </iframe>
+                                        </AspectRatio>
+                                    </div>)}
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        {
+                            isModal && <CarouselPrevious className="ml-14  rounded-none bg-white dark:bg-black "/>}
+                        {
+                            isModal && <CarouselNext className="mr-14 rounded-none backdrop-invert-0 bg-white dark:bg-black"/>
+                        }
+                    </Carousel> : (
+                        project.carousel[0].photo ? <AspectRatio ratio={16 / 9} className="overflow-hidden ">
+                            <Image src={project.carousel[0].photo} alt={"project screenshot"} width={900} height={600} />
+                        </AspectRatio> : <AspectRatio ratio={16 / 9} className=" youtube-container">
+                            <iframe
+                                width='100%'
+                                height='100%'
+                                src={`${project.carousel[0].video}&autoplay=1&mute=1&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1`} title="YouTube video player" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen={false}>
+                            </iframe>
+                        </AspectRatio>
+                    )
+                }
             </div>
             <div className="p-2 gap-1 flex flex-col items-start justify-between flex-1">
+                {isModal && <div className="flex flex-row-reverse w-full gap-4 border border-red-500">
+                    {project.demoVideo && (
+                        <a href={project.demoVideo} target="_blank" rel="noopener noreferrer">
+                            <Badge variant={'secondary'}>Demo</Badge>
+                        </a>
+                    )}
+                    {project.liveLink && (
+                        <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                            <Badge>Live</Badge>
+                        </a>
+                    )}
+                    {project.githubLink && (
+                        <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                            <Badge>GitHub</Badge>
+                        </a>
+                    )}
+                </div>}
                 <div>
                     <h2 className="  font-[family-name:var(--font-manrope-bold)] text-[1.65rem] tracking-tighter">{project.name}</h2>
                     <p className="text-black/[.5] dark:text-white/[.6] font-[family-name:var(--font-manrope-semi-bold)] text-xl tracking-tighter">{project.description}</p>
@@ -37,4 +118,5 @@ function ProjectCard({ project }: { project: ProjectType }) {
 }
 
 export { ProjectCard };
-export type { ProjectType };
+export type { ProjecCardtType };
+
