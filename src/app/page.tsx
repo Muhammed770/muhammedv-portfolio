@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dialog"
 import Link from "next/link";
 import { projects, workExperience, education } from "@/data/resume";
-
+import { personalInfo } from "@/data/resume";
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Home() {
@@ -29,13 +29,13 @@ export default function Home() {
               delay={BLUR_FADE_DELAY}
               className="text-5xl font-[family-name:var(--font-manrope-bold)] tracking-tighter"
               yOffset={8}
-              text={`hi, i’m muhammed.`}
+              text={personalInfo.intro}
             />
             <BlurFadeText
               delay={BLUR_FADE_DELAY}
               className="text-2xl font-[family-name:var(--font-manrope-semi-bold)] tracking-tighter"
               yOffset={8}
-              text={"computer science engineer, building web apps and full-stack applications."}
+              text={personalInfo.about}
             />
           </div>
           <BlurFade delay={BLUR_FADE_DELAY}>
@@ -44,6 +44,7 @@ export default function Home() {
             </div>
           </BlurFade>
         </div>
+
 
         <div className="flex flex-col  items-center">
           <div className="flex flex-col gap-5">
@@ -68,10 +69,9 @@ export default function Home() {
                   </Dialog>
                 </BlurFade>
               ))}
-
-
             </div>
           </div>
+          
           <div className="flex items-start gap-1">
             <Link href="/projects" className="flex gap-2">
               <BlurFadeText

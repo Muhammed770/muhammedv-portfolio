@@ -20,6 +20,7 @@ interface ProjecCardtType {
     demoVideo?: string;
     liveLink?: string;
     githubLink?: string;
+    devfolioLink?: string;
 }
 
 
@@ -41,13 +42,14 @@ function ProjectCard({ project, isModal }: { project: ProjecCardtType, isModal?:
                                     {item.photo && (
                                         <div className="w-full">
                                             <AspectRatio ratio={16 / 9} className="overflow-hidden ">
-                                                <Image src={item.photo} alt={"project screenshot"} width={900} height={600} />
+                                                <Image src={item.photo} alt={"project screenshot"} width={900} height={600} className="object-cover object-center w-full h-full" />
                                             </AspectRatio>
                                         </div>
                                     )}
                                     {item.video && (<div className="w-full ">
                                         <AspectRatio ratio={16 / 9} className=" youtube-container">
                                             <iframe
+                                                className="object-cover object-center w-full h-full"
                                                 src={`${item.video}&autoplay=1&mute=1&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0`} title="YouTube video player"  allowFullScreen={false}>
                                             </iframe>
                                         </AspectRatio>
@@ -61,17 +63,17 @@ function ProjectCard({ project, isModal }: { project: ProjecCardtType, isModal?:
 
                     </Carousel> : (
                         project.carousel[0].photo ? <AspectRatio ratio={16 / 9} className="overflow-hidden ">
-                            <Image src={project.carousel[0].photo} alt={"project screenshot"} width={900} height={600} />
+                                <Image src={project.carousel[0].photo} alt={"project screenshot"} width={900} height={600} className="object-cover object-center w-full h-full "/>
                         </AspectRatio> : <AspectRatio ratio={16 / 9} className="youtube-container">
                             <iframe
-                               
+                                        className="object-cover object-center w-full h-full"
                                 src={`${project.carousel[0].video}&autoplay=1&mute=1&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0`} title="YouTube video player"  allowFullScreen={false}>
                             </iframe>
                         </AspectRatio>
                     )
                 }
             </div>
-            <div className="p-2 gap-1 flex flex-col items-start justify-between flex-1">
+            <div className="p-2 gap-1 flex flex-col items-start justify-between flex-1 w-full">
                 {isModal && <div className="flex flex-row-reverse w-full gap-4 ">
                     {project.demoVideo && (
                         <a href={project.demoVideo} target="_blank" rel="noopener noreferrer">
@@ -86,6 +88,11 @@ function ProjectCard({ project, isModal }: { project: ProjecCardtType, isModal?:
                     {project.githubLink && (
                         <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                             <Badge>GitHub</Badge>
+                        </a>
+                    )}
+                    {project.devfolioLink && (
+                        <a href={project.devfolioLink} target="_blank" rel="noopener noreferrer">
+                            <Badge>Devfolio</Badge>
                         </a>
                     )}
                 </div>}

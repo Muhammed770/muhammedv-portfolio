@@ -103,7 +103,7 @@ body {
 .youtube-container iframe {
     /* Extend it beyond the viewport... */
     width: 300%;
-    height: 110%;
+    height: 114%;
     /* ...and bring it back again */
     margin-left: -100%;
 }
