@@ -46,10 +46,8 @@ export const projects: ProjecCardtType[] = [
         name: "TickGate",
         description: "NFT ticket verification and a scalable event ticket management system.",
         carousel: [
-            { 'video':'https://www.youtube.com/embed/QohH89Eu5iM?si=GG6jouz3KYcqyuQf&autoplay=1&controls=0&mute=1&loop=1&playlist=QohH89Eu5iM'},
-            { 'photo': '/projects/welkin.png' },
-            { 'photo': '/projects/welkin.png' },
-            { 'video': 'https://www.youtube.com/embed/_ucV-09aSEg?si=YeFz_CFH_ZA3BJ3o&autoplay=1&controls=0&mute=1' }
+            { 'video':'https://www.youtube.com/embed/9zdkXq6AD98?si=yJj-JI806_AiGchm&playlist=9zdkXq6AD98'},
+           
         ],
         techStack: ["web3", "nft", "next.js", "typescript", "tailwindcss", "firebase"],
     },

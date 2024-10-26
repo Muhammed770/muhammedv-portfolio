@@ -30,7 +30,7 @@ function ProjectCard({ project, isModal }: { project: ProjecCardtType, isModal?:
     return (
         <div className="bg-white dark:bg-zinc-900 p-2 h-full flex flex-col items-start border border-black dark:border-white">
 
-            <div className="border border-black dark:border-white w-full">
+            <div className="border border-black dark:border-white w-full overflow-hidden ">
                 {
                     isModal ? <Carousel
                      
@@ -48,9 +48,7 @@ function ProjectCard({ project, isModal }: { project: ProjecCardtType, isModal?:
                                     {item.video && (<div className="w-full ">
                                         <AspectRatio ratio={16 / 9} className=" youtube-container">
                                             <iframe
-                                                width='100%'
-                                                height='100%'
-                                                src={`${item.video}&autoplay=1&mute=1&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1`} title="YouTube video player" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen={false}>
+                                                src={`${item.video}&autoplay=1&mute=1&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0`} title="YouTube video player"  allowFullScreen={false}>
                                             </iframe>
                                         </AspectRatio>
                                     </div>)}
@@ -58,17 +56,16 @@ function ProjectCard({ project, isModal }: { project: ProjecCardtType, isModal?:
                             ))}
                         </CarouselContent>
 
-                        <CarouselPrevious className="ml-14  rounded-none bg-white dark:bg-black " />
-                        <CarouselNext className="mr-14 rounded-none backdrop-invert-0 bg-white dark:bg-black" />
+                        <CarouselPrevious className="ml-14 max-sm:hidden rounded-none bg-white dark:bg-black " />
+                        <CarouselNext className="mr-14 max-sm:hidden rounded-none backdrop-invert-0 bg-white dark:bg-black" />
 
                     </Carousel> : (
                         project.carousel[0].photo ? <AspectRatio ratio={16 / 9} className="overflow-hidden ">
                             <Image src={project.carousel[0].photo} alt={"project screenshot"} width={900} height={600} />
-                        </AspectRatio> : <AspectRatio ratio={16 / 9} className="overflow-hidden  youtube-container">
+                        </AspectRatio> : <AspectRatio ratio={16 / 9} className="youtube-container">
                             <iframe
-                                width='100%'
-                                height='100%'
-                                src={`${project.carousel[0].video}&autoplay=1&mute=1&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1`} title="YouTube video player" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen={false}>
+                               
+                                src={`${project.carousel[0].video}&autoplay=1&mute=1&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0`} title="YouTube video player"  allowFullScreen={false}>
                             </iframe>
                         </AspectRatio>
                     )
