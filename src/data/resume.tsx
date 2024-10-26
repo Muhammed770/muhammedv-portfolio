@@ -18,7 +18,7 @@ interface PersonalInfoType {
 }
 export const personalInfo: PersonalInfoType = {
     name: "Muhammed Vengalath",
-    intro: "hi, i’m muhammed.👋",
+    intro: "hi, i’m muhammed.",
     about: "Computer Science Engineer, building web apps and full-stack applications.",
     email: "muhammedvengalath@gmail.com",
     location:"Dubai, UAE",
