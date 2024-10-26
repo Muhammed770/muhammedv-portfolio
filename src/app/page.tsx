@@ -47,18 +47,7 @@ export default function Home() {
               </div>
             </BlurFade>
           </div>
-          <div className="flex items-end justify-center  gap-4">
-            {personalInfo.socials.map((social, id) => (
-              <Link key={social.name} href={social.url}  >
-
-                <BlurFadeIcon
-                  key={social.name}
-                  delay={BLUR_FADE_DELAY * 2 + id * 0.05}
-                  icon={social.icon}
-                />
-              </Link>
-            ))}
-          </div>
+          
         </div>
 
         <div className="flex flex-col  items-center">
@@ -122,8 +111,8 @@ export default function Home() {
             }
           </div>
         </div>
-        <div>
 
+        <div>
           <BlurFade delay={BLUR_FADE_DELAY * 6}>
             <h1 className="text-3xl font-[family-name:var(--font-manrope-bold)] tracking-tighter ">
               work experience
@@ -154,6 +143,32 @@ export default function Home() {
               <Education key={edu.school} education={edu} />
             </BlurFade>
           ))}
+        </div>
+        <div>
+
+          <div className="flex flex-col items-center justify-center">
+            <BlurFade delay={BLUR_FADE_DELAY * 8}>
+              <h1 className="text-3xl font-[family-name:var(--font-manrope-bold)] tracking-tighter ">
+                get in touch
+              </h1>
+            </BlurFade>
+            <BlurFade >
+              <h1 className="text-md font-[family-name:var(--font-manrope-semi-bold)] tracking-tighter ">
+                Shoot me a message on <a href="https://dub.sh/muhammed770-in" className="text-primary underline underline-offset-1">linkedin here</a>
+              </h1>
+            </BlurFade>
+          </div>
+          <div className="flex items-center justify-center gap-4">
+            {personalInfo.socials.map((social, id) => (
+              <Link key={social.name} href={social.url}  >
+                <BlurFadeIcon
+                  key={social.name}
+                  delay={BLUR_FADE_DELAY * 9 + id * 0.05}
+                  icon={social.icon}
+                />
+              </Link>
+            ))}
+          </div>
         </div>
 
       </div>
