@@ -4,7 +4,7 @@ import { FaChevronDown } from "react-icons/fa";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import BlurFadeIcon from "@/components/magicui/blur-fade-icon";
-import { WorkExperience} from "@/components/workExperience";
+import { WorkExperience } from "@/components/workExperience";
 import { Education } from "@/components/education";
 import {
   Dialog,
@@ -14,6 +14,7 @@ import {
 import Link from "next/link";
 import { projects, workExperience, education } from "@/data/resume";
 import { personalInfo } from "@/data/resume";
+import { Badge } from "@/components/ui/badge";
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Home() {
@@ -22,29 +23,43 @@ export default function Home() {
 
     <div className="flex items-center justify-center m-4">
       <div className="max-w-xl py-8 flex flex-col gap-8">
-        <div className="flex justify-between">
+        <div>
 
-          <div className="flex flex-col max-w-md">
-            <BlurFadeText
-              delay={BLUR_FADE_DELAY}
-              className="text-5xl font-[family-name:var(--font-manrope-bold)] tracking-tighter"
-              yOffset={8}
-              text={personalInfo.intro}
-            />
-            <BlurFadeText
-              delay={BLUR_FADE_DELAY}
-              className="text-2xl font-[family-name:var(--font-manrope-semi-bold)] tracking-tighter"
-              yOffset={8}
-              text={personalInfo.about}
-            />
-          </div>
-          <BlurFade delay={BLUR_FADE_DELAY}>
-            <div className="w-24 h-24">
-              <Image src={"/me.jpg"} className="object-cover object-center w-full h-full  " alt="Muhammed" width={80} height={80} />
+          <div className="flex justify-between">
+
+            <div className="flex flex-col max-w-md">
+              <BlurFadeText
+                delay={BLUR_FADE_DELAY}
+                className="text-5xl font-[family-name:var(--font-manrope-bold)] tracking-tighter"
+                yOffset={8}
+                text={personalInfo.intro}
+              />
+              <BlurFadeText
+                delay={BLUR_FADE_DELAY}
+                className="text-2xl font-[family-name:var(--font-manrope-semi-bold)] tracking-tighter"
+                yOffset={8}
+                text={personalInfo.about}
+              />
             </div>
-          </BlurFade>
-        </div>
+            <BlurFade delay={BLUR_FADE_DELAY}>
+              <div className="w-24 h-24">
+                <Image src={"/me.jpg"} className="object-cover object-center w-full h-full  " alt="Muhammed" width={80} height={80} />
+              </div>
+            </BlurFade>
+          </div>
+          <div className="flex items-end justify-center  gap-4">
+            {personalInfo.socials.map((social, id) => (
+              <Link key={social.name} href={social.url}  >
 
+                <BlurFadeIcon
+                  key={social.name}
+                  delay={BLUR_FADE_DELAY * 2 + id * 0.05}
+                  icon={social.icon}
+                />
+              </Link>
+            ))}
+          </div>
+        </div>
 
         <div className="flex flex-col  items-center">
           <div className="flex flex-col gap-5">
@@ -61,18 +76,18 @@ export default function Home() {
                 >
                   <Dialog>
                     <DialogTrigger className="h-full flex flex-col items-start text-left">
-                      <ProjectCard key={project.name} project={project} isModal={false}/>
+                      <ProjectCard key={project.name} project={project} isModal={false} />
                     </DialogTrigger>
                     <DialogContent className="backdrop:blur-lg">
-                      <ProjectCard key={project.name} project={project} isModal/>
+                      <ProjectCard key={project.name} project={project} isModal />
                     </DialogContent>
                   </Dialog>
                 </BlurFade>
               ))}
             </div>
           </div>
-          
-          <div className="flex items-start gap-1">
+
+          <div className="flex mt-2 gap-1 items-center">
             <Link href="/projects" className="flex gap-2">
               <BlurFadeText
                 delay={BLUR_FADE_DELAY * 5}
@@ -86,6 +101,25 @@ export default function Home() {
               />
             </Link>
 
+          </div>
+        </div>
+        <div>
+          <BlurFade delay={BLUR_FADE_DELAY * 6}>
+            <h1 className="text-3xl font-[family-name:var(--font-manrope-bold)] tracking-tighter ">
+              skills
+            </h1>
+          </BlurFade>
+          <div className="flex flex-wrap gap-1">
+            {
+              personalInfo.skills.map((skills, id) => (
+                <BlurFade
+                  key={skills}
+                  delay={BLUR_FADE_DELAY * 6 + id * 0.05}
+                >
+                  <Badge key={skills} variant={'default'}>{skills}</Badge>
+                </BlurFade>
+              ))
+            }
           </div>
         </div>
         <div>

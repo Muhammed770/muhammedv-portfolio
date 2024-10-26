@@ -1,7 +1,8 @@
 import { WorkExperienceType } from "@/components/workExperience";
 import { EducationType } from "@/components/education";
 import { ProjecCardtType } from "@/components/projectCard";
-
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { IoMail ,IoLogoGithub,IoLogoLinkedin} from "react-icons/io5";
 interface PersonalInfoType {
     name: string;
     intro: string;
@@ -17,7 +18,7 @@ interface PersonalInfoType {
 }
 export const personalInfo: PersonalInfoType = {
     name: "Muhammed Vengalath",
-    intro: "hi, i’m muhammed.",
+    intro: "hi, i’m muhammed.👋",
     about: "Computer Science Engineer, building web apps and full-stack applications.",
     email: "muhammedvengalath@gmail.com",
     location:"Dubai, UAE",
@@ -25,24 +26,22 @@ export const personalInfo: PersonalInfoType = {
         {
             name: "github",
             url: "https://dub.sh/muhammed770-github",
-            icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19c-4.243 1.5-4.243-2.5-6-3m12 0c-1.757 1-1.757 4.5-6 3m6-3l-6 3-6-3" />
-            </svg>
+            icon: <IoLogoGithub />,
         },
         {
             name: "linkedin",
             url: "https://dub.sh/muhammed770-in",
-            icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 10v4a2 2 0 01-2 2h-4v-6h4a1 1 0 011-1V8a1 1 0 00-1-1c-1.333 0-2 .667-3 1v4a1 1 0 01-1 1H9a1 1 0 01
-            -1-1V8a1 1 0 00-1-1 3 3 0 00-3 3v6a3 3 0 003 3h4a3 3 0 003-3v-4a1 1 0 011-1h1" />
-            </svg>
+            icon: <IoLogoLinkedin />,
         },
         {
             name: "x",
             url: "https://dub.sh/muhammed770-x",
-            icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
+            icon: <FaSquareXTwitter />,
+        },
+        {
+            name: "email",
+            url: "mailto:muhammedvengalath@gmail.com",
+            icon: <IoMail />,
         },
     ]
     ,

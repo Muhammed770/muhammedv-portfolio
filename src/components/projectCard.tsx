@@ -100,9 +100,9 @@ function ProjectCard({ project, isModal }: { project: ProjecCardtType, isModal?:
                     <h2 className="  font-[family-name:var(--font-manrope-bold)] text-[1.65rem] tracking-tighter">{project.name}</h2>
                     <p className="text-black/[.5] dark:text-white/[.6] font-[family-name:var(--font-manrope-semi-bold)] text-xl tracking-tighter">{project.description}</p>
                 </div>
-                <div className="">
+                <div className="flex flex-wrap gap-1">
                     {project.techStack?.map((tech) => (
-                        <Badge key={tech}  >
+                        <Badge key={tech}  variant={'secondary'}>
                             {tech}
                         </Badge>
                     ))}

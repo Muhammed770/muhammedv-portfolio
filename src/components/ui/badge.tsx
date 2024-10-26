@@ -1,18 +1,19 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
+import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center  border px-1.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  "inline-flex items-center rounded-none border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
   {
     variants: {
       variant: {
         default:
-          "border-gray-950 bg-transparent text-white shadow 0",
+          "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
         secondary:
-          "border-gray-50 bg-transparent text-white ",
+          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
         destructive:
-          "border-red-950 bg-transparent text-white shadow ",
+          "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
         outline: "text-foreground",
       },
     },
@@ -22,16 +23,13 @@ const badgeVariants = cva(
   }
 )
 
-
-
 export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {}
 
-function Badge({  ...props }: BadgeProps) {
-  
+function Badge({ className, variant, ...props }: BadgeProps) {
   return (
-    <div className={" border-black/[.5] dark:border-white/[.45] bg-transparent text-black/[.5] dark:text-white/[.6] m-1 inline-flex items-center  border px-1.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"} {...props} />
+    <div className={cn(badgeVariants({ variant }), className)} {...props} />
   )
 }
 
