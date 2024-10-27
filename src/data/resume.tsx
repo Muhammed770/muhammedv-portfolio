@@ -74,7 +74,7 @@ export const education: EducationType[] = [
         url: "/education/gect.png",
         degree: "Bachelor of Technology in Computer Science and Engineering",
         school: "Government Engineering College, Thrissur",
-        duration: "2020 - 2024",
+
     },
 ]
 export const projects: ProjecCardtType[] = [
@@ -114,8 +114,16 @@ export const projects: ProjecCardtType[] = [
         carousel: [
             { 'video':'https://www.youtube.com/embed/rJBo3uBul5o?si=f6M0D7mvoqqpt6wO&playlist=rJBo3uBul5o'},
         ],
-        techStack: ["astro", "nodejs", "tailwindcss", "Strapi CMS", "socket.io", "react"],
+        techStack: ["astro","PWA", "nodejs", "tailwindcss", "Strapi CMS", "socket.io", "react"],
         githubLink:"https://github.com/Muhammed770/PWA-astro-strapi",
+    },
+    {
+        name:"Portfolio",
+        description:"My personal portfolio website built using Next.js and TailwindCSS.",
+        carousel:[
+            { 'video':'https://www.youtube.com/embed/D9vMcrDf2NE?si=SqAp8utemDsex0i_&playlist=D9vMcrDf2NE'},
+        ],
+        techStack:['next.js','typescript','tailwindcss','shadcn'],
     },
     {
         name:'Justice Protocol',
