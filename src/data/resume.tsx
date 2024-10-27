@@ -124,6 +124,8 @@ export const projects: ProjecCardtType[] = [
             { 'video':'https://www.youtube.com/embed/D9vMcrDf2NE?si=SqAp8utemDsex0i_&playlist=D9vMcrDf2NE'},
         ],
         techStack:['next.js','typescript','tailwindcss','shadcn'],
+        githubLink:"https://github.com/Muhammed770/muhammedv-portfolio",
+        liveLink:"https://muhammedvengalath.vercel.app/",
     },
     {
         name:'Justice Protocol',
