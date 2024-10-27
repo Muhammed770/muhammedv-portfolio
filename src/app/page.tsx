@@ -47,7 +47,7 @@ export default function Home() {
               </div>
             </BlurFade>
           </div>
-          
+
         </div>
 
         <div className="flex flex-col  items-center">
@@ -144,19 +144,18 @@ export default function Home() {
             </BlurFade>
           ))}
         </div>
+        
         <div>
-
-          
           <BlurFade delay={BLUR_FADE_DELAY * 8} className="flex flex-col items-center justify-center">
-              <h1 className="text-3xl font-[family-name:var(--font-manrope-bold)] tracking-tighter ">
-                get in touch
-              </h1>
-              <h1 className="text-md font-[family-name:var(--font-manrope-semi-bold)] tracking-tighter ">
-                Shoot me a message on <a href="https://dub.sh/muhammed770-in" className="text-primary underline underline-offset-1">linkedin here</a>
-              </h1>
-            </BlurFade>
-           
-    
+            <h1 className="text-3xl font-[family-name:var(--font-manrope-bold)] tracking-tighter ">
+              get in touch
+            </h1>
+            <h1 className="text-md font-[family-name:var(--font-manrope-semi-bold)] tracking-tighter ">
+              Shoot me a message on <Link href="https://dub.sh/muhammed770-in" className=" underline underline-offset-1">linkedin here</Link>
+            </h1>
+          </BlurFade>
+
+
           <div className="flex items-center justify-center gap-4">
             {personalInfo.socials.map((social, id) => (
               <Link key={social.name} href={social.url}  >
