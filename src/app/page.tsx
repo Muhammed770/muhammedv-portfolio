@@ -30,13 +30,13 @@ export default function Home() {
             <div className="flex flex-col max-w-md">
               <BlurFadeText
                 delay={BLUR_FADE_DELAY}
-                className="text-5xl font-[family-name:var(--font-manrope-bold)] tracking-tighter"
+                className="text-4xl  font-[family-name:var(--font-manrope-bold)] tracking-tighter"
                 yOffset={8}
                 text={personalInfo.intro}
               />
               <BlurFadeText
                 delay={BLUR_FADE_DELAY}
-                className="text-2xl font-[family-name:var(--font-manrope-semi-bold)] tracking-tighter"
+                className="text-xl  font-[family-name:var(--font-manrope-semi-bold)] tracking-tighter"
                 yOffset={8}
                 text={personalInfo.about}
               />
