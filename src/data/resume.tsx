@@ -3,6 +3,12 @@ import { EducationType } from "@/components/education";
 import { ProjecCardtType } from "@/components/projectCard";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { IoMail ,IoLogoGithub,IoLogoLinkedin} from "react-icons/io5";
+import { LinkItems } from "@/components/navbar";
+
+export const links: LinkItems[] = [
+    {href: '/', name: "Home"},
+    {href: '/projects', name: "Projects"},
+];
 interface PersonalInfoType {
     name: string;
     intro: string;

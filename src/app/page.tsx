@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
 
-    <div className="flex items-center justify-center m-4">
+    <div className="flex items-center justify-center mb-4">
       <div className="max-w-xl py-8 flex flex-col gap-8">
         <div>
 
@@ -40,6 +40,17 @@ export default function Home() {
                 yOffset={8}
                 text={personalInfo.about}
               />
+              <div className="flex items-center justify-start gap-4">
+                {personalInfo.socials.map((social, id) => (
+                  <Link key={social.name} href={social.url}  >
+                    <BlurFadeIcon
+                      key={social.name}
+                      delay={BLUR_FADE_DELAY * 9 + id * 0.05}
+                      icon={social.icon}
+                    />
+                  </Link>
+                ))}
+              </div>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <div className="w-24 h-24">
