@@ -2,12 +2,12 @@ import { WorkExperienceType } from "@/components/workExperience";
 import { EducationType } from "@/components/education";
 import { ProjecCardtType } from "@/components/projectCard";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import { IoMail ,IoLogoGithub,IoLogoLinkedin} from "react-icons/io5";
+import { IoMail, IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { LinkItems } from "@/components/navbar";
 
 export const links: LinkItems[] = [
-    {href: '/', name: "Home"},
-    {href: '/projects', name: "Projects"},
+    { href: '/', name: "Home" },
+    { href: '/projects', name: "Projects" },
 ];
 interface PersonalInfoType {
     name: string;
@@ -27,7 +27,7 @@ export const personalInfo: PersonalInfoType = {
     intro: "hi, i’m muhammed.",
     about: "Computer Science Engineer, building web apps and full-stack applications.",
     email: "muhammedvengalath@gmail.com",
-    location:"Dubai, UAE",
+    location: "Dubai, UAE",
     socials: [
         {
             name: "github",
@@ -67,6 +67,13 @@ export const personalInfo: PersonalInfoType = {
 
 export const workExperience: WorkExperienceType[] = [
     {
+        url: "/work-experience/daxis.png",
+        position: "Full stack engineer",
+        company: "Direct Axis Technology LLC (Acodax)",
+        duration: "2024 - current",
+        description: "Developing and maintaining web applications, webhooks, queue system and APIs, stack includes Next.js, Node.js, MongoDB, redis, BullMQ ",
+    },
+    {
         url: "/work-experience/welkiniot.png",
         position: "frontend engineer",
         company: "welkin embedded solutions pvt ltd",
@@ -88,8 +95,8 @@ export const projects: ProjecCardtType[] = [
         name: "welkin fleet tracking",
         description: "web application for fleet tracking, fuel usage, ac used, live location ...using iot device data",
         carousel: [
-            { 'video':'https://www.youtube.com/embed/VB2-ilTh_xI?si=sEd2Djjo-QtgqgP8&playlist=VB2-ilTh_xI'},
-            { 'video':'https://www.youtube.com/embed/AGf_BA54d7g?si=I8ANYFlB0xpdFp4p&playlist=AGf_BA54d7g'},
+            { 'video': 'https://www.youtube.com/embed/VB2-ilTh_xI?si=sEd2Djjo-QtgqgP8&playlist=VB2-ilTh_xI' },
+            { 'video': 'https://www.youtube.com/embed/AGf_BA54d7g?si=I8ANYFlB0xpdFp4p&playlist=AGf_BA54d7g' },
             { 'photo': '/projects/welkin/welkin.png' },
         ],
         techStack: ["react", "typescript", "chakra ui", "nextauth", "next.js"],
@@ -103,45 +110,45 @@ export const projects: ProjecCardtType[] = [
             { 'video': 'https://www.youtube.com/embed/YLGLpzT7Ois?si=SqAhBFE5joqah8vj&playlist=YLGLpzT7Ois' },
         ],
         techStack: ["laravel", "PHP", "sqlite", "tailwindcss", "alpine.js", "blade"],
-        githubLink:"https://github.com/Muhammed770/DynamicWeb",
+        githubLink: "https://github.com/Muhammed770/DynamicWeb",
     },
     {
         name: "TickGate",
         description: "NFT ticket verification and a scalable event ticket management system.",
         carousel: [
-            { 'video':'https://www.youtube.com/embed/9zdkXq6AD98?si=yJj-JI806_AiGchm&playlist=9zdkXq6AD98'},
+            { 'video': 'https://www.youtube.com/embed/9zdkXq6AD98?si=yJj-JI806_AiGchm&playlist=9zdkXq6AD98' },
         ],
-        liveLink:'https://tickgate-weavedb.vercel.app/',
+        liveLink: 'https://tickgate-weavedb.vercel.app/',
         techStack: ["web3", "nft", "next.js", "typescript", "tailwindcss", "firebase"],
     },
     {
         name: "Insta Shopee",
         description: "Progressive web apploication using astro,that can be made into ios,android apps.",
         carousel: [
-            { 'video':'https://www.youtube.com/embed/rJBo3uBul5o?si=f6M0D7mvoqqpt6wO&playlist=rJBo3uBul5o'},
+            { 'video': 'https://www.youtube.com/embed/rJBo3uBul5o?si=f6M0D7mvoqqpt6wO&playlist=rJBo3uBul5o' },
         ],
-        techStack: ["astro","PWA", "nodejs", "tailwindcss", "Strapi CMS", "socket.io", "react"],
-        githubLink:"https://github.com/Muhammed770/PWA-astro-strapi",
+        techStack: ["astro", "PWA", "nodejs", "tailwindcss", "Strapi CMS", "socket.io", "react"],
+        githubLink: "https://github.com/Muhammed770/PWA-astro-strapi",
     },
     {
-        name:"Portfolio",
-        description:"My personal portfolio website built using Next.js and TailwindCSS.",
-        carousel:[
-            { 'video':'https://www.youtube.com/embed/D9vMcrDf2NE?si=SqAp8utemDsex0i_&playlist=D9vMcrDf2NE'},
+        name: "Portfolio",
+        description: "My personal portfolio website built using Next.js and TailwindCSS.",
+        carousel: [
+            { 'video': 'https://www.youtube.com/embed/D9vMcrDf2NE?si=SqAp8utemDsex0i_&playlist=D9vMcrDf2NE' },
         ],
-        techStack:['next.js','typescript','tailwindcss','shadcn'],
-        githubLink:"https://github.com/Muhammed770/muhammedv-portfolio",
-        liveLink:"https://muhammedvengalath.vercel.app/",
+        techStack: ['next.js', 'typescript', 'tailwindcss', 'shadcn'],
+        githubLink: "https://github.com/Muhammed770/muhammedv-portfolio",
+        liveLink: "https://muhammedvengalath.vercel.app/",
     },
     {
-        name:'Justice Protocol',
-        description:'Justice System for Network State.',
-        carousel:[
-            {'photo': '/projects/justiceprotocol/justice-protocol.webp'},
+        name: 'Justice Protocol',
+        description: 'Justice System for Network State.',
+        carousel: [
+            { 'photo': '/projects/justiceprotocol/justice-protocol.webp' },
         ],
-        techStack: ["web3","typescript","nextjs","rectJS","Huddle01","waku"],
-        githubLink:"https://github.com/Shiyasmohd/justice-protocol",
-        demoVideo:"https://www.youtube.com/watch?v=Ak1uWumwIAg",
+        techStack: ["web3", "typescript", "nextjs", "rectJS", "Huddle01", "waku"],
+        githubLink: "https://github.com/Shiyasmohd/justice-protocol",
+        demoVideo: "https://www.youtube.com/watch?v=Ak1uWumwIAg",
     },
     {
         name: "IPFY",
@@ -150,7 +157,7 @@ export const projects: ProjecCardtType[] = [
             { 'photo': '/projects/ipfy/ipfy1.png' },
             { 'photo': '/projects/ipfy/ipfy2.png' },
         ],
-        devfolioLink:'https://devfolio.co/projects/ipfy-091a',
-        techStack: ["web3", "react","Ether.js","solidity", "typescript", "tailwindcss", "firebase"],
+        devfolioLink: 'https://devfolio.co/projects/ipfy-091a',
+        techStack: ["web3", "react", "Ether.js", "solidity", "typescript", "tailwindcss", "firebase"],
     },
 ]
