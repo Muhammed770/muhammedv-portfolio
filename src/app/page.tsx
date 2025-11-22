@@ -54,7 +54,7 @@ export default function Home() {
             </div>
             <BlurFade delay={BLUR_FADE_DELAY * 3}>
               <div className="w-24 h-24">
-                <Image src={"/me.jpg"} className="object-cover object-center w-full h-full  " alt="Muhammed" width={80} height={80} />
+                <Image src={"/me.png"} className="object-cover object-center w-full h-full  " alt="Muhammed" width={80} height={80} />
               </div>
             </BlurFade>
           </div>
