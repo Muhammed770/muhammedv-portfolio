@@ -3,6 +3,7 @@ import { EducationType } from "@/components/education";
 import { ProjecCardtType } from "@/components/projectCard";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { IoMail, IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
+import { LiaNpm } from "react-icons/lia";
 import { LinkItems } from "@/components/navbar";
 
 export const links: LinkItems[] = [
@@ -49,12 +50,20 @@ export const personalInfo: PersonalInfoType = {
             url: "mailto:muhammedvengalath@gmail.com",
             icon: <IoMail />,
         },
+        {
+            name: "npm",
+            url: "https://www.npmjs.com/~muhammedv",
+            icon: <LiaNpm />
+        }
     ]
     ,
     skills: [
         "React",
         "Next.js",
         "TypeScript",
+        "Electron",
+        "ML-training",
+        "AI integrations",
         "TailwindCSS",
         "Node.js",
         'Redis',
