@@ -1,3 +1,4 @@
+import React from "react";
 import { WorkExperienceType } from "@/components/workExperience";
 import { EducationType } from "@/components/education";
 import { ProjecCardtType } from "@/components/projectCard";
@@ -9,6 +10,7 @@ import { LinkItems } from "@/components/navbar";
 export const links: LinkItems[] = [
     { href: '/', name: "Home" },
     { href: '/projects', name: "Projects" },
+    { href: '/notes', name: "Notes" },
 ];
 interface PersonalInfoType {
     name: string;
@@ -19,7 +21,7 @@ interface PersonalInfoType {
     socials: {
         name: string;
         url: string;
-        icon: JSX.Element;
+        icon: React.ReactElement;
     }[];
     skills: string[];
 }
