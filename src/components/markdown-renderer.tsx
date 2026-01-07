@@ -34,9 +34,11 @@ export function MarkdownRenderer({ content, slug }: MarkdownRendererProps) {
                         // Handle relative paths within the note folder
                         // Images should be placed in public/notes/[slug]/ directory
                         if (!src.startsWith('http')) {
+                            // Normalize relative paths: remove ./ prefix and clean up
+                            const normalizedSrc = src.replace(/^\.\//, '').replace(/^\.\.\//, '');
                             return (
                                 <Image
-                                    src={`/notes/${slug}/${src}`}
+                                    src={`/notes/${slug}/${normalizedSrc}`}
                                     alt={alt || ''}
                                     width={800}
                                     height={600}
