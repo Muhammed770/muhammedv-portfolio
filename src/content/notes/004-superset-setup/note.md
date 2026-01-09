@@ -1,8 +1,9 @@
 ---
+bannerImage: banner1.jpg
 date: 2025-01-09
 ---
 
-# Superset setup
+# Apache Superset setup for production
 
 https://youtu.be/IP14ArymP08
 
