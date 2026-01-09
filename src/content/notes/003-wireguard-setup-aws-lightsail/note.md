@@ -1,6 +1,6 @@
 ---
 bannerImage: banner guard Collection Pin.jpg
-date: 2025-01-07
+date: 2026-01-07
 ---
 
 # WireGuard setup on aws lightsail

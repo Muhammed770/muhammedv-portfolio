@@ -1,6 +1,6 @@
 ---
 bannerImage: Wallpaper Pin.jpg
-date: 2025-01-07
+date: 2026-01-07
 ---
 
 # node-canvas registerFont() windows solution - custom fonts loading to canvas
