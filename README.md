@@ -1,6 +1,6 @@
 ## Portfolio
 
-Personal site of Muhammed Vengalath, live at [muhammedvengalath.vercel.app](https://muhammedvengalath.vercel.app).
+Personal site of Muhammed Vengalath, live at [muhammedv.com](https://muhammedv.com).
 
 Built on the [Magic UI portfolio template](https://github.com/dillionverma/portfolio) (Next.js, Tailwind CSS, shadcn/ui, Motion), with a GitHub activity section and notes cards on the home page. Deployed on Vercel.
 

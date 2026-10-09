@@ -20,7 +20,7 @@ import {
 export const DATA = {
   name: "Muhammed Vengalath",
   initials: "MV",
-  url: "https://muhammedvengalath.vercel.app",
+  url: "https://muhammedv.com",
   location: "Dubai, UAE",
   locationLink: "https://www.google.com/maps/place/dubai",
   description:
