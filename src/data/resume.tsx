@@ -1,17 +1,32 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
+import {
+  Cloud,
+  HomeIcon,
+  Monitor,
+  NotebookIcon,
+  RefreshCw,
+  ScanEye,
+  Server,
+  Workflow,
+} from "lucide-react";
 import { ReactLight } from "@/components/ui/svgs/reactLight";
 import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
 import { Typescript } from "@/components/ui/svgs/typescript";
 import { Nodejs } from "@/components/ui/svgs/nodejs";
 import {
   AI,
+  Aws,
+  ComputerVision,
   Electron,
+  Fastify,
   Firebase,
-  MachineLearning,
+  Microsoft,
   Mongodb,
+  Oracle,
+  PowerSync,
   Queue,
   Redis,
+  Salesforce,
   Solidity,
   Tailwind,
   Web3,
@@ -23,10 +38,9 @@ export const DATA = {
   url: "https://muhammedv.com",
   location: "Dubai, UAE",
   locationLink: "https://www.google.com/maps/place/dubai",
-  description:
-    "Full stack engineer in Dubai, building ChequeEazy at Direct Axis Technology.",
+  description: "Full stack engineer in Dubai. I built ChequeEazy from the bottom up.",
   summary:
-    "I'm a full stack engineer at [Direct Axis Technology](https://acodax.com) in Dubai, where I work on [ChequeEazy](#projects), a cheque printing and management platform, and build web apps, webhooks, queue systems and APIs with Next.js, Node.js, MongoDB, Redis and BullMQ. Before that I was a frontend engineer at Welkin Embedded Solutions, building a fleet tracking app on top of the company's own IoT devices. I studied [Computer Science and Engineering at GEC Thrissur](https://gectcr.ac.in), shipped a few Web3 projects at hackathons, and I [write notes](/notes) about things I figure out along the way.",
+    "I'm a full stack engineer at [Direct Axis Technology](https://acodax.com) in Dubai, where I own [ChequeEazy](#chequeeazy). I built it from the bottom up: the desktop app, the in-house trained vision model, the backend and the infrastructure, and it's now reaching half a million dirhams in sales. Before that I was a frontend engineer at Welkin Embedded Solutions, building a fleet tracking app on top of the company's own IoT devices. I studied [Computer Science and Engineering at GEC Thrissur](https://gectcr.ac.in), shipped a few Web3 projects at hackathons, and I [write notes](/notes) about things I figure out along the way.",
   // Hover cards for links in the summary, keyed by the link's href.
   linkPreviews: {
     "https://acodax.com": {
@@ -35,27 +49,103 @@ export const DATA = {
         "Cloud ERP for the UAE, Saudi Arabia and the GCC. Accounting, VAT, inventory, CRM, HR and payroll with the Aira AI assistant, in one system.",
       images: ["/previews/acodax.jpg"],
     },
-    "#projects": {
+    "#chequeeazy": {
       title: "ChequeEazy",
       description:
-        "Cheque printing and management for finance teams, with print-perfect layouts for 60+ UAE banks and AI that scans a cheque and picks the template.",
+        "Scan any cheque, even a layout it has never seen, and an in-house trained AI finds every field and prints straight onto the leaf.",
       images: [
         "/projects/chequeeazy/app-home.jpg",
         "/projects/chequeeazy/app-banks.jpg",
         "/projects/chequeeazy/app-fill-cheque.jpg",
       ],
     },
-    "https://gectcr.ac.in": {
-      title: "Government Engineering College Thrissur",
-      description:
-        "A legacy of nurturing engineering talent since 1957, producing distinguished alumni across the globe.",
-      images: ["/previews/gectcr.jpg"],
-    },
-    "/notes": {
-      title: "Notes",
-      description: "Setup guides, fixes and things I figured out while building.",
-      images: ["/previews/notes.jpg"],
-    },
+  },
+  chequeeazy: {
+    label: "Featured",
+    title: "ChequeEazy, zero to one",
+    description:
+      "Scan any cheque, even a layout it has never seen, and an in-house trained AI finds every field and prints straight onto the leaf. I built it from the bottom up.",
+    stats: [
+      { value: "~AED 500K", label: "in sales" },
+      { value: "0", label: "layouts to design first" },
+      { value: "3+", label: "CRM & ERP integrations" },
+    ],
+    clientsLabel: "Trusted by leading UAE real estate developers",
+    // Heights are tuned per logo so they read at the same visual weight.
+    clients: [
+      { name: "Danube Properties", logo: "/clients/danube.png", className: "h-6" },
+      { name: "Modon Properties", logo: "/clients/modon.svg", className: "h-3.5" },
+      { name: "Eagle Hills", logo: "/clients/eagle-hills.png", className: "h-[15px]" },
+      { name: "Arada", logo: "/clients/arada.svg", className: "h-4" },
+      { name: "Bloom Properties", logo: "/clients/bloom.svg", className: "h-[19px]" },
+    ],
+    video: "/projects/chequeeazy/promo.mp4",
+    poster: "/projects/chequeeazy/poster.jpg",
+    // `src` is the cropped thumbnail; `full` is the whole window, shown in the lightbox.
+    screenshots: [
+      {
+        src: "/projects/chequeeazy/app-home.jpg",
+        full: "/projects/chequeeazy/full/home.webp",
+        alt: "ChequeEazy home screen",
+      },
+      {
+        src: "/projects/chequeeazy/app-banks.jpg",
+        full: "/projects/chequeeazy/full/banks.webp",
+        alt: "Choosing a bank in ChequeEazy",
+      },
+      {
+        src: "/projects/chequeeazy/app-fill-cheque.jpg",
+        full: "/projects/chequeeazy/full/fill-cheque.webp",
+        alt: "Filling a cheque in ChequeEazy",
+      },
+    ],
+    built: [
+      {
+        title: "Desktop app",
+        description:
+          "Electron app for Windows and macOS, with print-perfect output, batch printing and cheque reports.",
+        icon: Monitor,
+        tags: [{ name: "Electron", icon: Electron }, { name: "Windows" }, { name: "macOS" }],
+      },
+      {
+        title: "In-house vision model",
+        description:
+          "Collected and built the cheque dataset, trained the vision model and host it. It finds every field, even on layouts it has never seen.",
+        icon: ScanEye,
+        tags: [{ name: "Dataset" }, { name: "Training" }, { name: "Hosting" }],
+      },
+      {
+        title: "Backend",
+        description: "Fastify APIs, webhooks and queues behind the app and its integrations.",
+        icon: Server,
+        tags: [{ name: "Fastify", icon: Fastify }, { name: "Redis", icon: Redis }, { name: "BullMQ", icon: Queue }],
+      },
+      {
+        title: "Local-first sync",
+        description:
+          "Built local-first on PowerSync, so the app stays fast and keeps working offline, then syncs when it reconnects.",
+        icon: RefreshCw,
+        tags: [{ name: "PowerSync", icon: PowerSync }, { name: "Offline-first" }],
+      },
+      {
+        title: "Infrastructure",
+        description:
+          "AWS, server management and database management. Everything that keeps ChequeEazy running is handled by me.",
+        icon: Cloud,
+        tags: [{ name: "AWS", icon: Aws }, { name: "Databases" }, { name: "Servers" }],
+      },
+      {
+        title: "Enterprise integrations",
+        description:
+          "Worked with our clients' engineers to integrate ChequeEazy with their CRM and ERP systems, and built the APIs and support pages for it.",
+        icon: Workflow,
+        tags: [
+          { name: "Salesforce", icon: Salesforce },
+          { name: "Dynamics 365", icon: Microsoft },
+          { name: "Oracle", icon: Oracle },
+        ],
+      },
+    ],
   },
   avatarUrl: "/avatar.jpg",
   github: "Muhammed770",
@@ -64,14 +154,17 @@ export const DATA = {
     { name: "Next.js", icon: NextjsIconDark },
     { name: "TypeScript", icon: Typescript },
     { name: "Node.js", icon: Nodejs },
+    { name: "Fastify", icon: Fastify },
     { name: "Electron", icon: Electron },
+    { name: "PowerSync", icon: PowerSync },
     { name: "Tailwind CSS", icon: Tailwind },
     { name: "Redis", icon: Redis },
     { name: "BullMQ", icon: Queue },
     { name: "MongoDB", icon: Mongodb },
     { name: "Firebase", icon: Firebase },
+    { name: "AWS", icon: Aws },
+    { name: "Computer vision", icon: ComputerVision },
     { name: "AI integrations", icon: AI },
-    { name: "ML training", icon: MachineLearning },
     { name: "Web3", icon: Web3 },
     { name: "Solidity", icon: Solidity },
   ],
@@ -120,7 +213,7 @@ export const DATA = {
       start: "2024",
       end: "Present",
       description:
-        "Working on ChequeEazy, a cheque printing and management platform. Developing and maintaining web applications, webhooks, queue systems and APIs with Next.js, Node.js, MongoDB, Redis and BullMQ.",
+        "Own ChequeEazy end to end. Built the Electron desktop app for Windows and macOS, trained and host the in-house vision model that prints on cheque layouts it has never seen, and run the Fastify backend, PowerSync sync, databases and AWS servers. Work with client engineering teams on Salesforce, Microsoft Dynamics 365 and Oracle integrations.",
     },
     {
       company: "Welkin Embedded Solutions",
@@ -146,24 +239,6 @@ export const DATA = {
     },
   ],
   projects: [
-    {
-      title: "ChequeEazy",
-      href: "",
-      dates: "2024 - Present",
-      active: true,
-      description:
-        "Cheque printing and management platform for enterprise finance teams. Print-perfect layouts for 60+ UAE bank cheques, batch printing, receipt vouchers, cheque reports and role-based permissions. **Aira**, the built-in AI, scans a cheque, detects the bank and layout, and loads a print-ready template in one click.",
-      technologies: [
-        "Desktop App",
-        "AI Layout Detection",
-        "OCR",
-        "Salesforce CRM",
-        "Batch Printing",
-      ],
-      links: [],
-      image: "/projects/chequeeazy/poster.jpg",
-      video: "/projects/chequeeazy/promo.mp4",
-    },
     {
       title: "Welkin Fleet Tracking",
       href: "https://www.youtube.com/watch?v=VB2-ilTh_xI",

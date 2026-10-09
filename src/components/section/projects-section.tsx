@@ -11,7 +11,7 @@ export default function ProjectsSection() {
             <SectionHeader
                 label="Projects"
                 title="Check out my latest work"
-                description="From cheque printing software to fleet tracking, CMSs and Web3 hackathon builds."
+                description="Fleet tracking, NFT event ticketing, CMSs, PWAs and Web3 hackathon builds."
             />
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto auto-rows-fr">
                 {DATA.projects.map((project, id) => (

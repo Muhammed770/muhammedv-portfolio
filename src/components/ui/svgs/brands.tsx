@@ -2,13 +2,16 @@ import type { SVGProps } from "react";
 import {
   SiElectron,
   SiEthereum,
+  SiFastify,
   SiFirebase,
   SiMongodb,
   SiRedis,
   SiSolidity,
   SiTailwindcss,
 } from "react-icons/si";
-import { BrainCircuit, ListOrdered, Sparkles } from "lucide-react";
+import { FaAws, FaMicrosoft, FaSalesforce } from "react-icons/fa6";
+import { GrOracle } from "react-icons/gr";
+import { ListOrdered, RefreshCw, ScanEye, Sparkles } from "lucide-react";
 
 type IconProps = SVGProps<SVGSVGElement>;
 
@@ -36,8 +39,26 @@ export const Web3 = ({ className }: IconProps) => (
 export const Queue = ({ className }: IconProps) => (
   <ListOrdered className={className} color="#E0234E" />
 );
-export const MachineLearning = ({ className }: IconProps) => (
-  <BrainCircuit className={className} color="#8B5CF6" />
+export const ComputerVision = ({ className }: IconProps) => (
+  <ScanEye className={className} color="#8B5CF6" />
+);
+export const Fastify = ({ className }: IconProps) => (
+  <SiFastify className={className} />
+);
+export const PowerSync = ({ className }: IconProps) => (
+  <RefreshCw className={className} color="#0EA5E9" />
+);
+export const Aws = ({ className }: IconProps) => (
+  <FaAws className={className} color="#FF9900" />
+);
+export const Salesforce = ({ className }: IconProps) => (
+  <FaSalesforce className={className} color="#00A1E0" />
+);
+export const Microsoft = ({ className }: IconProps) => (
+  <FaMicrosoft className={className} color="#0078D4" />
+);
+export const Oracle = ({ className }: IconProps) => (
+  <GrOracle className={className} color="#C74634" />
 );
 export const AI = ({ className }: IconProps) => (
   <Sparkles className={className} color="#D97757" />
