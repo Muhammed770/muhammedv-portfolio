@@ -149,22 +149,22 @@ export default function Page() {
         </div>
       </section>
       <section id="github">
-        <BlurFade delay={BLUR_FADE_DELAY * 11} inView>
+        <BlurFade delay={BLUR_FADE_DELAY * 11}>
           <GithubSection />
         </BlurFade>
       </section>
       <section id="projects">
-        <BlurFade delay={BLUR_FADE_DELAY * 12} inView>
+        <BlurFade delay={BLUR_FADE_DELAY * 12}>
           <ProjectsSection />
         </BlurFade>
       </section>
       <section id="notes">
-        <BlurFade delay={BLUR_FADE_DELAY * 13} inView>
+        <BlurFade delay={BLUR_FADE_DELAY * 13}>
           <NotesSection />
         </BlurFade>
       </section>
       <section id="contact">
-        <BlurFade delay={BLUR_FADE_DELAY * 14} inView>
+        <BlurFade delay={BLUR_FADE_DELAY * 14}>
           <ContactSection />
         </BlurFade>
       </section>

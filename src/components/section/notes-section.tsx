@@ -32,7 +32,7 @@ export default function NotesSection() {
         {posts.map((post, id) => {
           const slug = getPostSlug(post);
           return (
-            <BlurFade key={slug} delay={BLUR_FADE_DELAY * 2 + id * 0.05} inView className="h-full">
+            <BlurFade key={slug} delay={BLUR_FADE_DELAY * 13 + id * 0.05} className="h-full">
               <Link
                 href={`/notes/${slug}`}
                 className="group flex flex-col h-full rounded-xl border border-border overflow-hidden hover:ring-2 hover:ring-muted transition-all duration-200"
