@@ -157,8 +157,8 @@ export const DATA = {
         "Batch Printing",
       ],
       links: [],
-      image: "/projects/chequeeazy/cover.jpg",
-      video: "",
+      image: "/projects/chequeeazy/poster.jpg",
+      video: "/projects/chequeeazy/promo.mp4",
     },
     {
       title: "Welkin Fleet Tracking",
