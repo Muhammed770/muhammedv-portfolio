@@ -1,0 +1,155 @@
+---
+title: "How I reach my dev machine from anywhere with Tailscale"
+publishedAt: "2026-10-10"
+summary: "SSH into an always-on dev machine where Claude Code runs 24/7 in tmux, remote desktop into Windows from my phone, exit nodes as a personal VPN, and Tailscale Serve and Funnel for sharing local apps."
+image: "/notes/tailscale-dev-machine-from-anywhere/banner.jpg"
+---
+
+I keep one dev machine switched on all the time. Claude Code runs on it 24/7 inside tmux, so the work keeps going whether I'm at my desk, at home or somewhere else entirely.
+
+Tailscale is how I get to it. Every device I sign in joins one private network, so my laptop, my phone and the dev machine can all talk to each other from anywhere, without opening a single port on the router.
+
+## What Tailscale gives you
+
+- Every device on your Tailscale network (your "tailnet") gets a stable `100.x.y.z` address.
+- With MagicDNS, you can use the machine's name instead, like `devbox`.
+- Traffic between devices is encrypted with WireGuard and goes peer to peer whenever it can.
+- Nothing is exposed to the public internet, so there's no port forwarding and no dynamic DNS to manage.
+
+## Install it on every machine
+
+On Linux:
+
+```bash
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
+```
+
+On macOS, Windows, iOS and Android, install the Tailscale app and sign in with the same account.
+
+To check that everything joined:
+
+```bash
+tailscale status
+```
+
+## SSH into the dev machine
+
+Once both machines are on the tailnet, SSH works by name, from home or anywhere else:
+
+```bash
+ssh muhammed@devbox
+```
+
+You can also let Tailscale handle SSH auth, so there are no keys to copy around. Turn it on once, on the dev machine:
+
+```bash
+sudo tailscale set --ssh
+```
+
+## Keep Claude Code running with tmux
+
+The SSH connection will drop at some point: the Wi-Fi changes, the laptop lid closes. I don't want Claude Code to stop when that happens, so it runs inside a tmux session on the dev machine.
+
+Start a session and run Claude Code inside it:
+
+```bash
+tmux new -s claude
+claude
+```
+
+Detach with `Ctrl+b` then `d`. Claude Code keeps working in the background.
+
+Later, from any device on the tailnet, jump straight back in:
+
+```bash
+ssh muhammed@devbox
+tmux attach -t claude
+```
+
+`tmux ls` lists the sessions if you forget the name.
+
+## Remote desktop into Windows from my phone
+
+I also connect to a Windows machine over Remote Desktop (RDP), straight from my phone, through the same tailnet.
+
+1. On the Windows PC, turn on **Settings → System → Remote Desktop**, then install Tailscale and sign in. Remote Desktop hosting needs Windows Pro, Enterprise or Education.
+2. On the phone, install Tailscale and Microsoft's **Windows App** (the app that replaced Remote Desktop), and switch Tailscale on.
+3. In Windows App, add a PC using its Tailscale name (or its `100.x.y.z` address), then sign in with your Windows account.
+
+The RDP port is never open to the internet. Only devices on your tailnet can reach it.
+
+## Exit nodes: browse through one of your machines
+
+An exit node sends all your internet traffic through one of your own machines, so any machine on the tailnet can act as your VPN. It's handy on public Wi-Fi, or whenever you want your browsing to go out through another machine's connection.
+
+On the machine that will act as the exit node, if it runs Linux, turn on IP forwarding first:
+
+```bash
+echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf
+echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf
+sudo sysctl -p /etc/sysctl.d/99-tailscale.conf
+```
+
+Then advertise it:
+
+```bash
+sudo tailscale set --advertise-exit-node
+```
+
+On macOS and Windows, you can turn this on from the Tailscale menu instead.
+
+Approve it once in the Tailscale admin console: open the machine, choose **Edit route settings** and enable **Use as exit node**.
+
+To use it from the phone, pick it under **Exit node** in the Tailscale app. From a terminal:
+
+```bash
+tailscale set --exit-node=devbox
+```
+
+To go back to your normal connection:
+
+```bash
+tailscale set --exit-node=
+```
+
+If you still need devices on your local network, like a printer, add `--exit-node-allow-lan-access`.
+
+## Tailscale Serve: open a local app on all my devices
+
+When I'm running an app on the dev machine, say on port 3000, Serve puts it on a real HTTPS URL:
+
+```bash
+tailscale serve 3000
+```
+
+It prints an address like `https://devbox.your-tailnet.ts.net`, with a valid certificate. Only devices on your tailnet can open it, which is perfect for checking the app on my phone.
+
+Add `--bg` to keep it running after you close the terminal:
+
+```bash
+tailscale serve --bg 3000
+tailscale serve status
+tailscale serve reset
+```
+
+## Tailscale Funnel: share it with the internet
+
+Serve only shares inside your tailnet. When someone outside it needs to see the app, like a client, a teammate or a webhook from another service, Funnel puts the same URL on the public internet:
+
+```bash
+tailscale funnel 3000
+```
+
+A few things to know about Funnel:
+
+- It needs HTTPS certificates turned on and Funnel allowed in your tailnet policy. The first time you run it, the command gives you a link to enable both.
+- It only listens on ports 443, 8443 and 10000.
+- Bandwidth is limited, so it's for demos and webhooks, not production traffic.
+- On macOS, Funnel needs one of Tailscale's open-source builds rather than the App Store app.
+
+Press `Ctrl+C` to stop it, or run `tailscale funnel reset` if you started it with `--bg`.
+
+## That's the whole setup
+
+One always-on machine, tmux, and Tailscale on every device. From there I can SSH in and pick up where Claude Code left off, remote desktop into Windows from my phone, browse through my own connection, and share whatever I'm building, all without opening a single port.
