@@ -1,4 +1,41 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+import { withContentCollections } from "@content-collections/next";
 
-export default nextConfig;
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  async redirects() {
+    return [
+      { source: "/projects", destination: "/#projects", permanent: true },
+      { source: "/blog", destination: "/notes", permanent: true },
+      { source: "/blog/:slug", destination: "/notes/:slug", permanent: true },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "DENY",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+        ],
+      },
+    ];
+  },
+};
+
+// withContentCollections must be the outermost plugin
+export default withContentCollections(nextConfig);

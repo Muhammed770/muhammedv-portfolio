@@ -1,21 +1,24 @@
-
-
-https://github.com/user-attachments/assets/bbd06493-9707-450d-8fe6-2c94e5da13a8
-
-
-
 ## Portfolio
 
-This project is made using next.js,tailwind,framer motion and shadcn.
+Personal site of Muhammed Vengalath, live at [muhammedvengalath.vercel.app](https://muhammedvengalath.vercel.app).
 
-Deployed on vercel.
+Built on the [Magic UI portfolio template](https://github.com/dillionverma/portfolio) (Next.js, Tailwind CSS, shadcn/ui, Motion), with a GitHub activity section and notes cards on the home page. Deployed on Vercel.
 
 ```bash
 pnpm i
-```
-```bash
-pnpm run dev
+pnpm dev
 ```
 
+### Editing content
 
-You can edit the portfolio data by changing the [Config file](./src/data/resume.tsx) .
+- **Profile, work, education, skills, projects:** [`src/data/resume.tsx`](./src/data/resume.tsx)
+- **Project cover images:** `public/projects/`
+- **Notes:** MDX files in [`content/`](./content), images in `public/notes/<slug>/`. Create a new one with:
+
+  ```bash
+  pnpm create-note "my-note-slug"
+  ```
+
+### GitHub section
+
+Stars, repos and followers come from the GitHub REST API, and the contribution graph from [github-contributions-api](https://github.com/grubersjoe/github-contributions-api). Both are cached and refreshed once a day. Set a `GITHUB_TOKEN` environment variable on Vercel if the unauthenticated rate limit is ever hit.

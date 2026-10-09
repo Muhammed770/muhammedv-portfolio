@@ -1,175 +1,283 @@
-import React from "react";
-import { WorkExperienceType } from "@/components/workExperience";
-import { EducationType } from "@/components/education";
-import { ProjecCardtType } from "@/components/projectCard";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { IoMail, IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
-import { LiaNpm } from "react-icons/lia";
-import { LinkItems } from "@/components/navbar";
+import { Icons } from "@/components/icons";
+import { HomeIcon, NotebookIcon } from "lucide-react";
+import { ReactLight } from "@/components/ui/svgs/reactLight";
+import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
+import { Typescript } from "@/components/ui/svgs/typescript";
+import { Nodejs } from "@/components/ui/svgs/nodejs";
+import {
+  AI,
+  Electron,
+  Firebase,
+  MachineLearning,
+  Mongodb,
+  Queue,
+  Redis,
+  Solidity,
+  Tailwind,
+  Web3,
+} from "@/components/ui/svgs/brands";
 
-export const links: LinkItems[] = [
-    { href: '/', name: "Home" },
-    { href: '/projects', name: "Projects" },
-    { href: '/notes', name: "Notes" },
-];
-interface PersonalInfoType {
-    name: string;
-    intro: string;
-    about: string;
-    email: string;
-    location: string;
-    socials: {
-        name: string;
-        url: string;
-        icon: React.ReactElement;
-    }[];
-    skills: string[];
-}
-export const personalInfo: PersonalInfoType = {
-    name: "Muhammed Vengalath",
-    intro: "hi, i’m muhammed.",
-    about: "Computer Science Engineer, building web apps and full-stack applications.",
+export const DATA = {
+  name: "Muhammed Vengalath",
+  initials: "MV",
+  url: "https://muhammedvengalath.vercel.app",
+  location: "Dubai, UAE",
+  locationLink: "https://www.google.com/maps/place/dubai",
+  description:
+    "Full stack engineer in Dubai, building ChequeEazy at Direct Axis Technology.",
+  summary:
+    "I'm a full stack engineer at [Direct Axis Technology](https://acodax.com) in Dubai, where I work on [ChequeEazy](#projects), a cheque printing and management platform, and build web apps, webhooks, queue systems and APIs with Next.js, Node.js, MongoDB, Redis and BullMQ. Before that I was a frontend engineer at Welkin Embedded Solutions, building a fleet tracking app on top of the company's own IoT devices. I studied [Computer Science and Engineering at GEC Thrissur](#education), shipped a few Web3 projects at hackathons, and I [write notes](/notes) about things I figure out along the way.",
+  avatarUrl: "/me.png",
+  github: "Muhammed770",
+  skills: [
+    { name: "React", icon: ReactLight },
+    { name: "Next.js", icon: NextjsIconDark },
+    { name: "TypeScript", icon: Typescript },
+    { name: "Node.js", icon: Nodejs },
+    { name: "Electron", icon: Electron },
+    { name: "Tailwind CSS", icon: Tailwind },
+    { name: "Redis", icon: Redis },
+    { name: "BullMQ", icon: Queue },
+    { name: "MongoDB", icon: Mongodb },
+    { name: "Firebase", icon: Firebase },
+    { name: "AI integrations", icon: AI },
+    { name: "ML training", icon: MachineLearning },
+    { name: "Web3", icon: Web3 },
+    { name: "Solidity", icon: Solidity },
+  ],
+  navbar: [
+    { href: "/", icon: HomeIcon, label: "Home" },
+    { href: "/notes", icon: NotebookIcon, label: "Notes" },
+  ],
+  contact: {
     email: "muhammedvengalath@gmail.com",
-    location: "Dubai, UAE",
-    socials: [
+    social: {
+      GitHub: {
+        name: "GitHub",
+        url: "https://dub.sh/muhammed770-github",
+        icon: Icons.github,
+        navbar: true,
+      },
+      LinkedIn: {
+        name: "LinkedIn",
+        url: "https://dub.sh/muhammed770-in",
+        icon: Icons.linkedin,
+        navbar: true,
+      },
+      X: {
+        name: "X",
+        url: "https://dub.sh/muhammed770-x",
+        icon: Icons.x,
+        navbar: true,
+      },
+      email: {
+        name: "Email",
+        url: "mailto:muhammedvengalath@gmail.com",
+        icon: Icons.email,
+        navbar: true,
+      },
+    },
+  },
+
+  work: [
+    {
+      company: "Direct Axis Technology (Acodax)",
+      href: "https://acodax.com",
+      badges: [],
+      location: "Dubai, UAE",
+      title: "Full Stack Engineer",
+      logoUrl: "/work-experience/daxis.png",
+      start: "2024",
+      end: "Present",
+      description:
+        "Working on ChequeEazy, a cheque printing and management platform. Developing and maintaining web applications, webhooks, queue systems and APIs with Next.js, Node.js, MongoDB, Redis and BullMQ.",
+    },
+    {
+      company: "Welkin Embedded Solutions",
+      href: "",
+      badges: [],
+      location: "India",
+      title: "Frontend Engineer",
+      logoUrl: "/work-experience/welkiniot.png",
+      start: "2022",
+      end: "2023",
+      description:
+        "Built the front-end architecture and UI for a fleet tracking application in Next.js and TypeScript, integrated with the company's in-house IoT device.",
+    },
+  ],
+  education: [
+    {
+      school: "Government Engineering College, Thrissur",
+      href: "https://gectcr.ac.in",
+      degree: "B.Tech in Computer Science and Engineering",
+      logoUrl: "/education/gect.png",
+      start: "",
+      end: "",
+    },
+  ],
+  projects: [
+    {
+      title: "ChequeEazy",
+      href: "",
+      dates: "2024 - Present",
+      active: true,
+      description:
+        "Cheque printing and management platform for enterprise finance teams. Print-perfect layouts for 60+ UAE bank cheques, batch printing, receipt vouchers, cheque reports and role-based permissions. **Aira**, the built-in AI, scans a cheque, detects the bank and layout, and loads a print-ready template in one click.",
+      technologies: [
+        "Desktop App",
+        "AI Layout Detection",
+        "OCR",
+        "Salesforce CRM",
+        "Batch Printing",
+      ],
+      links: [],
+      image: "/projects/chequeeazy/cover.jpg",
+      video: "",
+    },
+    {
+      title: "Welkin Fleet Tracking",
+      href: "https://www.youtube.com/watch?v=VB2-ilTh_xI",
+      dates: "2022 - 2023",
+      active: false,
+      description:
+        "Fleet tracking web app powered by data from in-house IoT devices: live location, routes, fuel usage, AC usage and vehicle status.",
+      technologies: ["Next.js", "React", "TypeScript", "Chakra UI", "NextAuth"],
+      links: [
         {
-            name: "github",
-            url: "https://dub.sh/muhammed770-github",
-            icon: <IoLogoGithub />,
+          type: "Video",
+          href: "https://www.youtube.com/watch?v=VB2-ilTh_xI",
+          icon: <Icons.youtube className="size-3" />,
+        },
+      ],
+      image: "/projects/welkin/welkin.png",
+      video: "",
+    },
+    {
+      title: "TickGate",
+      href: "https://tickgate-weavedb.vercel.app/",
+      dates: "",
+      active: false,
+      description:
+        "NFT ticket verification and a scalable event ticket management system.",
+      technologies: ["Web3", "NFT", "Next.js", "TypeScript", "Tailwind CSS", "Firebase"],
+      links: [
+        {
+          type: "Website",
+          href: "https://tickgate-weavedb.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
         },
         {
-            name: "linkedin",
-            url: "https://dub.sh/muhammed770-in",
-            icon: <IoLogoLinkedin />,
+          type: "Video",
+          href: "https://www.youtube.com/watch?v=9zdkXq6AD98",
+          icon: <Icons.youtube className="size-3" />,
+        },
+      ],
+      image: "/projects/thumbs/tickgate.jpg",
+      video: "",
+    },
+    {
+      title: "DynamicWeb",
+      href: "https://github.com/Muhammed770/DynamicWeb",
+      dates: "2024",
+      active: false,
+      description:
+        "A custom CMS built with Laravel for dynamic content management, with API-based content fetching.",
+      technologies: ["Laravel", "PHP", "SQLite", "Tailwind CSS", "Alpine.js", "Blade"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/Muhammed770/DynamicWeb",
+          icon: <Icons.github className="size-3" />,
         },
         {
-            name: "x",
-            url: "https://dub.sh/muhammed770-x",
-            icon: <FaSquareXTwitter />,
+          type: "Video",
+          href: "https://www.youtube.com/watch?v=_ucV-09aSEg",
+          icon: <Icons.youtube className="size-3" />,
+        },
+      ],
+      image: "/projects/thumbs/dynamicweb.jpg",
+      video: "",
+    },
+    {
+      title: "Insta Shopee",
+      href: "https://github.com/Muhammed770/PWA-astro-strapi",
+      dates: "2024",
+      active: false,
+      description:
+        "Progressive web app built with Astro and Strapi CMS that can be packaged as iOS and Android apps, with real-time updates over socket.io.",
+      technologies: ["Astro", "PWA", "Node.js", "Strapi CMS", "socket.io", "React", "Tailwind CSS"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/Muhammed770/PWA-astro-strapi",
+          icon: <Icons.github className="size-3" />,
         },
         {
-            name: "email",
-            url: "mailto:muhammedvengalath@gmail.com",
-            icon: <IoMail />,
+          type: "Video",
+          href: "https://www.youtube.com/watch?v=rJBo3uBul5o",
+          icon: <Icons.youtube className="size-3" />,
+        },
+      ],
+      image: "/projects/thumbs/instashopee.jpg",
+      video: "",
+    },
+    {
+      title: "Justice Protocol",
+      href: "https://github.com/Shiyasmohd/justice-protocol",
+      dates: "2023",
+      active: false,
+      description: "A justice system for network states, built on Web3.",
+      technologies: ["Web3", "TypeScript", "Next.js", "React", "Huddle01", "Waku"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/Shiyasmohd/justice-protocol",
+          icon: <Icons.github className="size-3" />,
         },
         {
-            name: "npm",
-            url: "https://www.npmjs.com/~muhammedv",
-            icon: <LiaNpm />
-        }
-    ]
-    ,
-    skills: [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "Electron",
-        "ML-training",
-        "AI integrations",
-        "TailwindCSS",
-        "Node.js",
-        'Redis',
-        'BullMQ',
-        "MongoDB",
-        "Firebase",
-        "Web3",
-        "Solidity",
-    ]
-}
-
-export const workExperience: WorkExperienceType[] = [
-    {
-        url: "/work-experience/daxis.png",
-        position: "Full stack engineer",
-        company: "Direct Axis Technology LLC (Acodax)",
-        duration: "2024 - current",
-        description: "Developing and maintaining web applications, webhooks, queue system and APIs, stack includes Next.js, Node.js, MongoDB, redis, BullMQ ",
+          type: "Video",
+          href: "https://www.youtube.com/watch?v=Ak1uWumwIAg",
+          icon: <Icons.youtube className="size-3" />,
+        },
+      ],
+      image: "/projects/justiceprotocol/justice-protocol.webp",
+      video: "",
     },
     {
-        url: "/work-experience/welkiniot.png",
-        position: "frontend engineer",
-        company: "welkin embedded solutions pvt ltd",
-        duration: "2022 - 2023",
-        description: "Developed the front-end architecture and UI design for a fleet tracking application using NextJS and TypeScript, integrated with the company's in-house IoT device.",
-    },
-]
-
-export const education: EducationType[] = [
-    {
-        url: "/education/gect.png",
-        degree: "Bachelor of Technology in Computer Science and Engineering",
-        school: "Government Engineering College, Thrissur",
-
-    },
-]
-export const projects: ProjecCardtType[] = [
-    {
-        name: "welkin fleet tracking",
-        description: "web application for fleet tracking, fuel usage, ac used, live location ...using iot device data",
-        carousel: [
-            { 'video': 'https://www.youtube.com/embed/VB2-ilTh_xI?si=sEd2Djjo-QtgqgP8&playlist=VB2-ilTh_xI' },
-            { 'video': 'https://www.youtube.com/embed/AGf_BA54d7g?si=I8ANYFlB0xpdFp4p&playlist=AGf_BA54d7g' },
-            { 'photo': '/projects/welkin/welkin.png' },
-        ],
-        techStack: ["react", "typescript", "chakra ui", "nextauth", "next.js"],
+      title: "IPFY",
+      href: "https://devfolio.co/projects/ipfy-091a",
+      dates: "",
+      active: false,
+      description:
+        "A platform for recording intellectual property on the blockchain, for transparency and security.",
+      technologies: ["Web3", "React", "Ethers.js", "Solidity", "TypeScript", "Tailwind CSS", "Firebase"],
+      links: [
+        {
+          type: "Devfolio",
+          href: "https://devfolio.co/projects/ipfy-091a",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/projects/ipfy/ipfy1.png",
+      video: "",
     },
     {
-        name: "DynamicWeb",
-        description: " A custom CMS using Laravel for dynamic content management. API - based content fetching.",
-
-        carousel: [
-            { 'video': 'https://www.youtube.com/embed/_ucV-09aSEg?si=YeFz_CFH_ZA3BJ3o&playlist=_ucV-09aSEg' },
-            { 'video': 'https://www.youtube.com/embed/YLGLpzT7Ois?si=SqAhBFE5joqah8vj&playlist=YLGLpzT7Ois' },
-        ],
-        techStack: ["laravel", "PHP", "sqlite", "tailwindcss", "alpine.js", "blade"],
-        githubLink: "https://github.com/Muhammed770/DynamicWeb",
+      title: "Portfolio",
+      href: "https://github.com/Muhammed770/muhammedv-portfolio",
+      dates: "",
+      active: true,
+      description:
+        "This site. Built on the Magic UI portfolio template with Next.js, Tailwind CSS and MDX notes, plus a live GitHub activity section.",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Magic UI", "MDX"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/Muhammed770/muhammedv-portfolio",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/projects/portfolio/cover.jpg",
+      video: "",
     },
-    {
-        name: "TickGate",
-        description: "NFT ticket verification and a scalable event ticket management system.",
-        carousel: [
-            { 'video': 'https://www.youtube.com/embed/9zdkXq6AD98?si=yJj-JI806_AiGchm&playlist=9zdkXq6AD98' },
-        ],
-        liveLink: 'https://tickgate-weavedb.vercel.app/',
-        techStack: ["web3", "nft", "next.js", "typescript", "tailwindcss", "firebase"],
-    },
-    {
-        name: "Insta Shopee",
-        description: "Progressive web apploication using astro,that can be made into ios,android apps.",
-        carousel: [
-            { 'video': 'https://www.youtube.com/embed/rJBo3uBul5o?si=f6M0D7mvoqqpt6wO&playlist=rJBo3uBul5o' },
-        ],
-        techStack: ["astro", "PWA", "nodejs", "tailwindcss", "Strapi CMS", "socket.io", "react"],
-        githubLink: "https://github.com/Muhammed770/PWA-astro-strapi",
-    },
-    {
-        name: "Portfolio",
-        description: "My personal portfolio website built using Next.js and TailwindCSS.",
-        carousel: [
-            { 'video': 'https://www.youtube.com/embed/D9vMcrDf2NE?si=SqAp8utemDsex0i_&playlist=D9vMcrDf2NE' },
-        ],
-        techStack: ['next.js', 'typescript', 'tailwindcss', 'shadcn'],
-        githubLink: "https://github.com/Muhammed770/muhammedv-portfolio",
-        liveLink: "https://muhammedvengalath.vercel.app/",
-    },
-    {
-        name: 'Justice Protocol',
-        description: 'Justice System for Network State.',
-        carousel: [
-            { 'photo': '/projects/justiceprotocol/justice-protocol.webp' },
-        ],
-        techStack: ["web3", "typescript", "nextjs", "rectJS", "Huddle01", "waku"],
-        githubLink: "https://github.com/Shiyasmohd/justice-protocol",
-        demoVideo: "https://www.youtube.com/watch?v=Ak1uWumwIAg",
-    },
-    {
-        name: "IPFY",
-        description: "A platform for recording intellectual property using blockchain for transparency and security",
-        carousel: [
-            { 'photo': '/projects/ipfy/ipfy1.png' },
-            { 'photo': '/projects/ipfy/ipfy2.png' },
-        ],
-        devfolioLink: 'https://devfolio.co/projects/ipfy-091a',
-        techStack: ["web3", "react", "Ether.js", "solidity", "typescript", "tailwindcss", "firebase"],
-    },
-]
+  ],
+} as const;
