@@ -33,24 +33,28 @@ export const DATA = {
       title: "Acodax",
       description:
         "Cloud ERP for the UAE, Saudi Arabia and the GCC. Accounting, VAT, inventory, CRM, HR and payroll with the Aira AI assistant, in one system.",
-      image: "/previews/acodax.jpg",
+      images: ["/previews/acodax.jpg"],
     },
     "#projects": {
       title: "ChequeEazy",
       description:
         "Cheque printing and management for finance teams, with print-perfect layouts for 60+ UAE banks and AI that scans a cheque and picks the template.",
-      image: "/projects/chequeeazy/cover.jpg",
+      images: [
+        "/projects/chequeeazy/app-home.jpg",
+        "/projects/chequeeazy/app-banks.jpg",
+        "/projects/chequeeazy/app-fill-cheque.jpg",
+      ],
     },
     "https://gectcr.ac.in": {
       title: "Government Engineering College Thrissur",
       description:
         "A legacy of nurturing engineering talent since 1957, producing distinguished alumni across the globe.",
-      image: "/previews/gectcr.jpg",
+      images: ["/previews/gectcr.jpg"],
     },
     "/notes": {
       title: "Notes",
       description: "Setup guides, fixes and things I figured out while building.",
-      image: "/previews/notes.jpg",
+      images: ["/previews/notes.jpg"],
     },
   },
   avatarUrl: "/me.png",
