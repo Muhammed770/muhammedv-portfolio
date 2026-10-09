@@ -57,7 +57,7 @@ export const DATA = {
       images: ["/previews/notes.jpg"],
     },
   },
-  avatarUrl: "/avatar.jpg",
+  avatarUrl: "/avatar.png",
   github: "Muhammed770",
   skills: [
     { name: "React", icon: ReactLight },
