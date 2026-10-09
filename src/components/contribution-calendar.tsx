@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { ContributionDay } from "@/lib/github";
 import { cn } from "@/lib/utils";
 
@@ -36,6 +37,7 @@ interface Props {
 export function ContributionCalendar({ contributions, total }: Props) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [fade, setFade] = useState({ left: false, right: false });
+  const tooltipRef = useRef<HTMLDivElement>(null);
   const [tooltip, setTooltip] = useState<{ x: number; y: number; text: string } | null>(null);
 
   // Group days into Sunday-first week columns, padding the first week.
@@ -83,6 +85,23 @@ export function ContributionCalendar({ contributions, total }: Props) {
     updateFade();
   }, [weeks]);
 
+  // Keep the tooltip inside the viewport near the screen edges.
+  useLayoutEffect(() => {
+    const el = tooltipRef.current;
+    if (!el || !tooltip) return;
+    const half = el.offsetWidth / 2;
+    const max = document.documentElement.clientWidth - half - 8;
+    el.style.left = `${Math.max(half + 8, Math.min(tooltip.x, max))}px`;
+  }, [tooltip]);
+
+  // The tooltip is anchored to viewport coordinates, so drop it once the page moves.
+  useEffect(() => {
+    if (!tooltip) return;
+    const hide = () => setTooltip(null);
+    window.addEventListener("scroll", hide, { passive: true });
+    return () => window.removeEventListener("scroll", hide);
+  }, [tooltip]);
+
   if (weeks.length === 0) {
     return (
       <div className="h-[140px] rounded-lg bg-muted flex items-center justify-center text-sm text-muted-foreground">
@@ -106,7 +125,14 @@ export function ContributionCalendar({ contributions, total }: Props) {
             fade.right ? "opacity-100" : "opacity-0",
           )}
         />
-        <div ref={scrollRef} onScroll={updateFade} className="overflow-x-auto scrollbar-none">
+        <div
+          ref={scrollRef}
+          onScroll={() => {
+            updateFade();
+            setTooltip(null);
+          }}
+          className="overflow-x-auto scrollbar-none"
+        >
           <div className="min-w-[540px]">
             <div
               className="grid gap-[3px] mb-1.5 text-[10px] text-muted-foreground"
@@ -165,18 +191,24 @@ export function ContributionCalendar({ contributions, total }: Props) {
           More
         </span>
       </div>
-      {tooltip && (
-        <div
-          className="fixed z-50 px-2 py-1 text-[11px] leading-tight rounded-md bg-primary text-primary-foreground pointer-events-none whitespace-nowrap"
-          style={{
-            left: tooltip.x,
-            top: tooltip.y,
-            transform: "translate(-50%, -100%) translateY(-6px)",
-          }}
-        >
-          {tooltip.text}
-        </div>
-      )}
+      {/* Portal to body: BlurFade leaves a filter on its wrapper, which would make
+          a fixed element position relative to that wrapper instead of the viewport. */}
+      {tooltip &&
+        createPortal(
+          <div
+            ref={tooltipRef}
+            role="tooltip"
+            className="fixed z-50 px-2 py-1 text-[11px] leading-tight rounded-md bg-primary text-primary-foreground pointer-events-none whitespace-nowrap"
+            style={{
+              left: tooltip.x,
+              top: tooltip.y,
+              transform: "translate(-50%, -100%) translateY(-6px)",
+            }}
+          >
+            {tooltip.text}
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }

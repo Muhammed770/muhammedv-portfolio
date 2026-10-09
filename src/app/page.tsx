@@ -11,8 +11,11 @@ import NotesSection from "@/components/section/notes-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
+import { LinkPreview, type LinkPreviewData } from "@/components/link-preview";
 
 const BLUR_FADE_DELAY = 0.04;
+
+const linkPreviews: Record<string, LinkPreviewData | undefined> = DATA.linkPreviews;
 
 export default function Page() {
   return (
@@ -49,7 +52,19 @@ export default function Page() {
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
             <div className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
-              <Markdown>
+              <Markdown
+                components={{
+                  a: ({ href = "", children }) => {
+                    const preview = linkPreviews[href];
+                    if (!preview) return <a href={href}>{children}</a>;
+                    return (
+                      <LinkPreview href={href} preview={preview}>
+                        {children}
+                      </LinkPreview>
+                    );
+                  },
+                }}
+              >
                 {DATA.summary}
               </Markdown>
             </div>

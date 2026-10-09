@@ -26,7 +26,33 @@ export const DATA = {
   description:
     "Full stack engineer in Dubai, building ChequeEazy at Direct Axis Technology.",
   summary:
-    "I'm a full stack engineer at [Direct Axis Technology](https://acodax.com) in Dubai, where I work on [ChequeEazy](#projects), a cheque printing and management platform, and build web apps, webhooks, queue systems and APIs with Next.js, Node.js, MongoDB, Redis and BullMQ. Before that I was a frontend engineer at Welkin Embedded Solutions, building a fleet tracking app on top of the company's own IoT devices. I studied [Computer Science and Engineering at GEC Thrissur](#education), shipped a few Web3 projects at hackathons, and I [write notes](/notes) about things I figure out along the way.",
+    "I'm a full stack engineer at [Direct Axis Technology](https://acodax.com) in Dubai, where I work on [ChequeEazy](#projects), a cheque printing and management platform, and build web apps, webhooks, queue systems and APIs with Next.js, Node.js, MongoDB, Redis and BullMQ. Before that I was a frontend engineer at Welkin Embedded Solutions, building a fleet tracking app on top of the company's own IoT devices. I studied [Computer Science and Engineering at GEC Thrissur](https://gectcr.ac.in), shipped a few Web3 projects at hackathons, and I [write notes](/notes) about things I figure out along the way.",
+  // Hover cards for links in the summary, keyed by the link's href.
+  linkPreviews: {
+    "https://acodax.com": {
+      title: "Acodax",
+      description:
+        "Cloud ERP for the UAE, Saudi Arabia and the GCC. Accounting, VAT, inventory, CRM, HR and payroll with the Aira AI assistant, in one system.",
+      image: "/previews/acodax.jpg",
+    },
+    "#projects": {
+      title: "ChequeEazy",
+      description:
+        "Cheque printing and management for finance teams, with print-perfect layouts for 60+ UAE banks and AI that scans a cheque and picks the template.",
+      image: "/projects/chequeeazy/cover.jpg",
+    },
+    "https://gectcr.ac.in": {
+      title: "Government Engineering College Thrissur",
+      description:
+        "A legacy of nurturing engineering talent since 1957, producing distinguished alumni across the globe.",
+      image: "/previews/gectcr.jpg",
+    },
+    "/notes": {
+      title: "Notes",
+      description: "Setup guides, fixes and things I figured out while building.",
+      image: "/previews/notes.jpg",
+    },
+  },
   avatarUrl: "/me.png",
   github: "Muhammed770",
   skills: [
