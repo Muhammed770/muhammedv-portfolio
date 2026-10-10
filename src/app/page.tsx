@@ -169,9 +169,26 @@ export default function Page() {
           <NotesSection />
         </BlurFade>
       </section>
-      <section id="contact">
+      <section id="contact" className="flex flex-col gap-8">
         <BlurFade delay={BLUR_FADE_DELAY * 14}>
           <ContactSection />
+        </BlurFade>
+        <BlurFade delay={BLUR_FADE_DELAY * 15}>
+          <Link
+            href="/message"
+            className="group flex flex-col gap-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:flex-row sm:items-center sm:gap-4"
+          >
+            <span className="shrink-0 text-lg font-medium underline-offset-4 group-hover:underline">
+              Leave an anonymous message
+            </span>
+            <span
+              aria-hidden
+              className="hidden flex-1 border-b-2 border-dotted border-border transition-colors group-hover:border-muted-foreground/50 sm:block"
+            />
+            <span className="shrink-0 font-mono text-sm text-muted-foreground">
+              say something. no names.
+            </span>
+          </Link>
         </BlurFade>
       </section>
     </main>

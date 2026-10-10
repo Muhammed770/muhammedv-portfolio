@@ -1,4 +1,5 @@
 import { withContentCollections } from "@content-collections/next";
+import { withBotId } from "botid/next/config";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -38,4 +39,4 @@ const nextConfig = {
 };
 
 // withContentCollections must be the outermost plugin
-export default withContentCollections(nextConfig);
+export default withContentCollections(withBotId(nextConfig));
